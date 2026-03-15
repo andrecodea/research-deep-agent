@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-include = ["agent.py", "tools.py"]
+include = ["backend/agent.py", "backend/tools.py"]
 
 [project]
 name = "deep-agent-v1"
@@ -23,4 +23,6 @@ dependencies = [
     "python-dotenv>=1.2.2",
     "tavily>=1.1.0",
     "langgraph-cli[inmem]>=0.1.0",
+    "fastapi>=0.135.1",
+    "uvicorn>=0.41.0",
 ]

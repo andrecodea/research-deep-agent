@@ -1,0 +1,1758 @@
+Found 3 result(s) for '"context engineering" AI agents system prompt memory tools retrieval policies scratchpad'
+
+Context Engineering for AI Agents Guide October 2025 - Mem0
+**URL:** https://mem0.ai/blog/context-engineering-ai-agents-guide
+Context Engineering for AI Agents Guide October 2025
+
+
+
+
+
+
+
+
+[Announcing our $24M funding, led by Basis Set Ventures →](../series-a)
+
+[Announcing our $24M funding, led by Basis Set Ventures →](../series-a)
+
+Products
+
+Developers
+
+Resources
+
+Usecases
+
+[Pricing](../pricing)
+
+[Docs](https://mem0.dev/docs/w)
+
+[Star](https://github.com/mem0ai/mem0)
+
+[blog-content\_navbar\_get-started
+
+Blog
+
+Start Free](https://mem0.dev/platform/w)
+
+[home\_primary\_get-started
+
+Home
+
+Back](../blog)
+
+[home\_primary\_get-started
+
+Home
+
+Back](../blog)
+
+Context Engineering in 2025: The Complete Guide to AI Agent Optimization
+========================================================================
+
+[![](https://framerusercontent.com/images/xnB7E7DHE9wzabmpFIdmGt3GU.png?width=56&height=51)](https://x.com/mem0ai)
+
+[![](https://framerusercontent.com/images/Oj0hnfkWu2AxIPPghn07zmNI31w.png?width=65&height=64)](https://github.com/mem0ai/mem0)
+
+[![](https://framerusercontent.com/images/OJJwpxletqrAx9Sa0m4DYgQkvgI.png?width=65&height=64)](https://discord.com/invite/skNhacB39h)
+
+Author
+
+[![](https://framerusercontent.com/images/nmUfi9hC86t02j662DTILn9mieM.png?width=100&height=100)
+
+Taranjeet Singh](https://www.linkedin.com/in/taranjeet7114/)
+
+Posted In
+
+Miscellaneous
+
+Posted On
+
+December 23, 2025
+
+Summarize with AI
+
+![](https://framerusercontent.com/images/ZekmYAO980UkfCZkdFbzO9AIP4.png?width=481&height=480)
+
+Summarize
+
+Blogs
+
+![](https://framerusercontent.com/images/RqYW1x4CNTZM4y0R036hHGEXA.png?width=480&height=480)
+
+Summarize
+
+Blogs
+
+![](https://framerusercontent.com/images/TuH0AS8VfUjdjzOiYBwYLE4eeo.png?width=480&height=480)
+
+Summarize
+
+Blogs
+
+![](https://framerusercontent.com/images/srRcI4OvxCHeOHBcAy2z1i2KmyY.png?width=480&height=480)
+
+Summarize
+
+Blogs
+
+On This Page
+
+Content
+
+[![](https://framerusercontent.com/images/xnB7E7DHE9wzabmpFIdmGt3GU.png?width=56&height=51)](https://x.com/mem0ai)[![](https://framerusercontent.com/images/Oj0hnfkWu2AxIPPghn07zmNI31w.png?width=65&height=64)](https://github.com/mem0ai/mem0)[![](https://framerusercontent.com/images/OJJwpxletqrAx9Sa0m4DYgQkvgI.png?width=65&height=64)](https://discord.com/invite/skNhacB39h)
+
+Author
+
+[![](https://framerusercontent.com/images/nmUfi9hC86t02j662DTILn9mieM.png?width=100&height=100)
+
+Taranjeet Singh](https://www.linkedin.com/in/taranjeet7114/)
+
+Posted On
+
+December 23, 2025
+
+Posted In
+
+Miscellaneous
+
+Summarize with AI
+
+![](https://framerusercontent.com/images/ZekmYAO980UkfCZkdFbzO9AIP4.png?width=481&height=480)
+
+Summarize
+
+Blog
+
+![](https://framerusercontent.com/images/RqYW1x4CNTZM4y0R036hHGEXA.png?width=480&height=480)
+
+Summarize
+
+Blog
+
+![](https://framerusercontent.com/images/TuH0AS8VfUjdjzOiYBwYLE4eeo.png?width=480&height=480)
+
+Summarize
+
+Blog
+
+![](https://framerusercontent.com/images/srRcI4OvxCHeOHBcAy2z1i2KmyY.png?width=480&height=480)
+
+Summarize
+
+Blog
+
+![](https://framerusercontent.com/images/FANnEAZtwAPP8WRW20JQeV4ljk.jpeg?width=1536&height=1024)
+
+When you're developing AI agents, it's not enough to think in terms of individual interactions and basic prompt crafting. You need to design complete information systems. Context engineering is the systematic approach of structuring context and memory so [AI systems behave intelligently](../) over time. This guide will show you how to implement context engineering techniques that change stateless AI demos into production-ready systems that learn, remember, and adapt over time.
+
+**TLDR:**
+
+* Integrating RAG, memory systems, and context orchestration turns AI from reactive responders into adaptive systems that understand relationships and evolving context.
+* Enterprise-grade context engineering treats context as infrastructure, requiring scalable architectures, governance, and security to power reliable, compliant AI at scale.
+* Context poisoning and overload are solved through adaptive memory updates and intelligent relevance filtering.
+
+![686e8165828d830c9702ba65_blog_post_context_engineering_1.png](https://framerusercontent.com/images/5gOhvrDEgahpQqjm2wY0lCx4.png)
+
+Image Source: @dexhorthy on X (formerly Twitter). Included for analysis and discussion.
+
+What Is Context Engineering?
+----------------------------
+
+While prompt engineering asks, "What words should I use?" context engineering tackles a broader question: "What configuration of context is most likely to generate our model's desired behavior?"
+
+This distinction matters because most agent failures today aren't model failures; they're context failures. When your AI agent gives irrelevant responses or forgets previous interactions, a lot of the times, the underlying LLM is usually working fine. The problem lies in the information that you're feeding it.
+
+> Context engineering focuses on the systematic design of information flow to AI agents, moving beyond simple prompting to sophisticated context management for production-ready applications.
+
+Traditional prompt engineering worked well for one-off tasks, but building reliable AI agents requires a different approach. Context engineering covers everything from how you structure system prompts to how you manage long-term memory and retrieval systems. It's about creating the right information architecture so your AI agents can access relevant context when they need it.
+
+Core Components of Context Engineering
+--------------------------------------
+
+![Context Engineering (4).png](https://framerusercontent.com/images/Awdd7lvVMEmWTR3uGURpF23zKWA.png)
+
+Context engineering brings together several interlocking disciplines that work together to create intelligent AI agent behavior. Understanding these building blocks is important for designing systems that can handle complex, multi-turn interactions effectively. Below is a list of these components, from lowest level to system level:
+
+* **Context sources**. These are the raw inputs that can be injected into the model. Some examples include user input (queries, conversations), system instructions and policies, and retrieved documents (RAG).
+* **Representation and encoding**. This is how information is structured before entering the model. So plain text versus structured schemas (JSON), embeddings versus symbolic representations, summaries versus verbatim content, etc.
+* **Selection and filtering**. This building block represents the decision making of what to include and also what *not* to include. You can thing of this component in terms of relevance scoring, recency weighting, and importance/salience thresholds.
+* **Compression and distillation**. This reduces the context size without losing meaning and can include extractive summaries, abstractive summaries, and key-value or fact distillation.
+* **Temporal management**. This building block is about handling how context evolves over time. For example, short-term versus long-term memory, session versus cross-session memory, and forgetting and decay policies.
+* **Context assembly and ordering**. This determines how context is composed inside the prompt. Elements of this building block can include instruction hierarchy, tool results placement, and memory ordering (recent versus foundational).
+* **Reasoning scaffolds**. These are the structures that guide how the model uses context. This can include task decomposition hints, planning artifacts, and role or perspective framing.
+* **Feedback and adaptation loops**. Finally, this is how context improves itself over time and can address elements like error analysis and correction memory, preference learning, and reinforcement from outcomes.
+
+[Vector embeddings](./what-are-vector-embeddings) power much of this infrastructure, allowing semantic understanding across all components. Modern context engineering requires sophisticated orchestration of these elements.
+
+Memory Management in Context Engineering
+----------------------------------------
+
+Memory management is one of the core pillars for effective context engineering, determining what information persists across interactions and how it gets retrieved when needed. The challenge goes beyond storing data: it's intelligently curating what matters most for future conversations.
+
+**Short-term memory** handles immediate conversation context, typically spanning a single session. This includes recent exchanges, current task state, and working variables that help maintain conversational flow. But raw conversation history quickly overwhelms context windows, making compression important.
+
+**Long-term memory** preserves knowledge across sessions: user preferences, past decisions, learned behaviors, and relationship history. This is where most traditional approaches fail, either losing critical context or drowning agents in irrelevant historical data.
+
+> Effective memory management requires intelligent compression that preserves meaning while discarding noise, making sure agents remember what matters without cognitive overload.
+
+The key breakthrough is adaptive memory compression. Instead of storing raw transcripts, sophisticated systems extract and compress meaningful insights. [OpenAI's session memory](https://cookbook.openai.com/examples/agents_sdk/session_memory) shows basic approaches, but production systems need more detailed strategies.
+
+Memory retrieval strategies determine which stored information surfaces during conversations. Semantic search, recency weighting, and relevance scoring work together to surface the right context at the right time.
+
+Context Engineering Techniques and Strategies
+---------------------------------------------
+
+Context engineering techniques fall into four strategic categories that handle different aspects of information management: write, select, compress, and isolate. Each approach tackles specific challenges in maintaining optimal context for AI agents.
+
+**Write strategies** involve persisting information outside the immediate context window. The most common implementation is the "scratchpad" approach, where agents maintain working notes during task execution. This technique helps agents track progress, store intermediate results, and maintain state across complex multi-step processes.
+
+**Select strategies** focus on intelligent information filtering. Rather than including everything, these techniques identify and surface only the most relevant context for each interaction. Semantic search and relevance scoring determine what historical information deserves inclusion in the current context window.
+
+**Compress strategies** retain important information while reducing token consumption. This involves summarizing conversations, extracting key facts, and creating condensed representations that preserve meaning without overwhelming the context window.
+
+> Context engineering is most effective when it combines all four strategies, creating systems that write selectively, compress intelligently, and isolate appropriately based on task requirements.
+
+**Isolate strategies** separate different types of context to prevent interference. This might involve maintaining separate memory stores for different conversation topics or user relationships.
+
+[LangChain's research](https://blog.langchain.com/context-engineering-for-agents/) shows these techniques in practice, while [academic work](https://arxiv.org/html/2409.13385v1) provides theoretical foundations.
+
+RAG and Context Engineering Integration
+---------------------------------------
+
+RAG represents a powerful technique embedded within the broader context engineering framework. While RAG handles retrieval, context engineering manages the complete information flow: combining retrieval with compression, memory management, and intelligent formatting to deliver precisely the right information at exactly the right moment.
+
+Traditional RAG systems retrieve relevant documents and stuff them into context windows. But sophisticated context engineering takes this further, using advanced techniques to organize and present information more effectively. This involves breaking documents into meaningful chunks, ranking information by relevance, and fitting the most useful details within token limits.
+
+**Multi-source integration** becomes important when combining RAG with memory systems. Your agent needs to balance retrieved documents with stored user preferences, conversation history, and learned behaviors. This requires sophisticated coordination to prevent information conflicts.
+
+> The evolution from basic RAG to context-aware retrieval represents the difference between finding information and understanding what information matters for each specific user and situation.
+
+**Contextual compression** enhances traditional RAG by filtering retrieved content based on current conversation context. Instead of including entire documents, [advanced RAG techniques](https://github.com/NirDiamant/RAG_Techniques) compress and filter information to surface only relevant portions.
+
+The key is treating RAG as one component in a larger context engineering system rather than a standalone solution.
+
+Enterprise Context Engineering in Practice
+------------------------------------------
+
+Enterprise context engineering changes how organizations deploy AI agents at scale, moving beyond proof-of-concepts to production systems that handle complex business workflows. The challenge goes beyond technical issues: it's organizational, requiring coordination across fragmented knowledge systems and diverse stakeholder requirements.
+
+**Knowledge unification** is the primary enterprise challenge. Most organizations have information scattered across Confluence, Jira, SharePoint, Slack, CRMs, and countless databases. Context engineering provides the architecture to unify these disparate sources into coherent, searchable knowledge graphs that AI agents can work with effectively.
+
+**Compliance and security** become critical in enterprise deployments. Unlike consumer applications, enterprise context engineering must meet strict regulatory requirements. [Security compliance requirements](../security) aren't optional: they're table stakes for handling sensitive business data and customer information.
+
+> Enterprise context engineering succeeds when it aligns AI systems with company culture, business processes, and strategic objectives rather than technical features.
+
+**Scale and performance** requirements differ dramatically from smaller implementations. Enterprise systems need to handle thousands of concurrent users, maintain sub-50ms query latency, and process massive knowledge bases without degradation.
+
+[Cognizant's deployment](https://news.cognizant.com/2025-08-29-Cognizant-to-Deploy-1,000-Context-Engineers,-Powered-by-ContextFabric-TM-,-to-Industrialize-Agentic-AI) of 1,000 context engineers shows the industrial scale of this change. Companies are building dedicated teams to manage context engineering as a core competency.
+
+The key is treating context engineering as organizational infrastructure, rather than a technical implementation.
+
+Context Engineering Tools and Implementation
+--------------------------------------------
+
+Context engineering implementation requires the right combination of frameworks, tools, and architectural patterns. The field has evolved rapidly, with specialized tools appearing to handle different aspects of context management, from memory persistence to retrieval optimization.
+
+**LangGraph** leads the framework space with built-in support for both thread-scoped and long-term memory. Its checkpointing system persists agent state across all steps, creating an effective "scratchpad" for maintaining context throughout complex workflows. This architecture allows agents to write information to state and retrieve it at any point in their path.
+
+![0_je-yj93ERqG0BEoQ.png](https://framerusercontent.com/images/uIXYneHnazxiWGkqeOI9aJ7vBk.png)
+
+**Popular Implementation Patterns** include memory-augmented agents, context-aware RAG systems, and hybrid architectures that combine multiple memory types. [GitHub repositories](https://github.com/davidkimai/Context-Engineering) showcase practical implementations across different frameworks and use cases.
+
+**Integration Features** become important when building production systems. Modern context engineering requires smooth integration with existing AI stacks, from OpenAI APIs to custom LLM deployments.
+
+> The best context engineering tools provide one-line integration while offering sophisticated customization options for complex enterprise requirements.
+
+[Best practices and frameworks](https://www.c-sharpcorner.com/article/effective-context-engineering-for-ai-agents-best-practices-and-frameworks/) focus on starting simple and scaling complexity as needed.
+
+The key is choosing tools that grow with your needs while maintaining simplicity in initial implementation.
+
+Context Engineering Challenges and Solutions
+--------------------------------------------
+
+Context engineering faces four critical challenges that can derail even well-designed AI systems: context poisoning, context overload, token management, and performance optimization. Understanding these pitfalls and their solutions is important for building reliable production systems.
+
+**Context Poisoning** occurs when incorrect or outdated information contaminates the context window. This happens frequently in multi-stage processes where early model responses contain incomplete answers that persist and influence final outputs. The solution involves context pruning: systematically removing conflicting or outdated information as new data arrives.
+
+**Context Overload** overwhelms agents with too much information, degrading response quality and increasing latency. [Research shows](https://towardsdatascience.com/why-context-is-the-new-currency-in-ai-from-rag-to-context-engineering/) that more context doesn't always improve performance. Intelligent filtering and relevance scoring become important for maintaining optimal information density.
+
+**Token Management** challenges arise from balancing full context with cost constraints. Raw conversation histories quickly exhaust context windows and inflate API costs. Effective compression strategies can reduce token usage by 80% while preserving important information.
+
+**Performance Optimization** becomes critical at scale. Sub-50ms query latency requirements demand sophisticated caching, indexing, and retrieval strategies. [Enterprise implementations](https://www.kubiya.ai/blog/context-engineering-ai-agents) require careful architecture to maintain responsiveness.
+
+Mem0's Role in Context Engineering
+----------------------------------
+
+Mem0's memory compression engine writes important context to persistent storage, selects relevant memories through semantic search, compresses information intelligently, and isolates different memory types. Companies like [RevisionDojo](./how-revisiondojo-enhanced-personalized-learning-with-mem0) use these techniques for [personalized education](../usecase/education) applications.
+
+Mem0's [memory compression engine](../) intelligently distills conversations into optimized representations, cutting token usage by up to 80% while preserving fidelity. Our system handles both [AI companion memory](./how-to-add-long-term-memory-to-ai-companions-a-step-by-step-guide) and specialized applications like [healthcare](../usecase/healthcare), where memory persistence is important for patient continuity.  
+  
+And Mem0's semantic search and relevance scoring complement traditional RAG approaches by adding personalized context layers. Companies like [OpenNote](./how-opennote-scaled-personalized-visual-learning-with-mem0-while-reducing-token-costs-by-40) combine RAG with memory systems for personalized learning, while [sales applications](../usecase/sales) use this integration to maintain customer context alongside product information.  
+  
+As for context poisoning, Mem0's adaptive memory updates handle it by resolving contradictions automatically. Our [OpenMemory MCP](https://mem0.ai/openmemory-mcp) integration shows how intelligent filtering prevents overload, while our compression engine tackles token management. And our [research](../research) continues advancing solutions to these fundamental challenges.
+
+FAQ
+---
+
+### How do I get started with context engineering for my AI application?
+
+Start with basic memory management by implementing short-term conversation history and gradually add long-term memory storage. Most teams can integrate a memory layer such as Mem0 with a single line of code and see immediate improvements in context retention.
+
+### What's the main difference between context engineering and prompt engineering?
+
+Prompt engineering focuses on crafting individual prompts, while context engineering designs complete information systems that manage data flow to AI agents. Context engineering handles what information to feed your agent and when, rather than how to phrase requests.
+
+### When should I implement memory compression in my AI system?
+
+Consider memory compression when your token costs are high or your agents lose important context in long conversations. If you're seeing degraded performance after 10 to 15 conversation turns or spending a lot of budget on tokens, compression can reduce usage while preserving conversation quality.
+
+### How can I prevent context poisoning in multi-turn conversations?
+
+Implement adaptive memory updates that automatically resolve contradictions and filter outdated information. Use relevance scoring to focus on recent, accurate information over older data, and create clear policies for when to overwrite conflicting memories with new information.
+
+Final Thoughts on Context Engineering for AI Agents
+---------------------------------------------------
+
+Context engineering represents the missing piece that changes basic AI demos into production-ready systems that truly understand and remember. The shift from crafting better prompts to designing intelligent memory architectures is what separates functional prototypes from AI agents that provide genuine value. [Mem0](../) handles the complex orchestration of memory, compression, and retrieval so you can focus on building great user experiences rather than wrestling with context management. Your AI agents can finally remember what matters and forget what doesn't.
+
+On This Page
+
+Content
+
+Subscribe To New Posts
+----------------------
+
+Subscribe for fresh articles and updates. It’s quick, easy, and free.
+
+Subscribe
+
+Subscribe
+
+No spam. Unsubscribe anytime.
+
+No spam. Unsubscribe anytime.
+
+No spam. Unsubscribe anytime.
+
+Read More Mem0 Blogs
+--------------------
+
+[![](https://framerusercontent.com/images/QA98TLNgjnwTWIPNY9ZQNnhsAQ.png?width=1208&height=604)
+
+Google ADK Memory: How to Add Persistent Memory to Google ADK with Mem0
+-----------------------------------------------------------------------
+
+March 9, 2026
+
+·
+
+Engineering](./persistent-memory-google-adk-agents)
+
+[![](https://framerusercontent.com/images/eUDphIKeLYednBfMvmALM1F4Y.png?width=1208&height=604)
+
+How to Fix CrewAI Memory in Production with Mem0
+------------------------------------------------
+
+March 4, 2026
+
+·
+
+Engineering](./crewai-memory-production-setup-with-mem0)
+
+[![](https://framerusercontent.com/images/IV4eIviogZbSisaah1Kiikn9LM.png?width=1208&height=604)
+
+How to Design Multi-Agent Memory Systems for Production
+-------------------------------------------------------
+
+March 3, 2026
+
+·
+
+Engineering](./multi-agent-memory-systems)
+
+Give your AI
+a memory and
+personality.
+
+Instant memory for LLMs—better, cheaper, personal.
+
+[blog-content\_primary\_get-started
+
+Blog
+
+Get Started](https://mem0.dev/platform/w)
+
+[blog-content\_secondary\_pricing
+
+Blog
+
+Pricing](../pricing)
+
+Give your AI
+a memory and
+personality.
+
+Instant memory for LLMs—better, cheaper, personal.
+
+[blog-content\_primary\_get-started
+
+Blog
+
+Get Started](https://mem0.dev/platform/w)
+
+[blog-content\_secondary\_pricing
+
+Blog
+
+Pricing](../pricing)
+
+Give your AI
+a memory and
+personality.
+
+Instant memory for LLMs—better, cheaper, personal.
+
+[blog-content\_primary\_get-started
+
+Blog
+
+Get Started](https://mem0.dev/platform/w)
+
+[blog-content\_secondary\_pricing
+
+Blog
+
+Pricing](../pricing)
+
+PRODUCTS
+
+[Mem0](https://mem0.dev/platform/w)
+
+[OpenMemory](../openmemory)
+
+RESOURCES
+
+[Blog](../blog)
+
+[Research](../research)
+
+[Docs](https://docs.mem0.ai/)
+
+[Changelog](../changelog)
+
+[Investors](../investors)
+
+[Careers](../careers)
+
+[Trust Center](https://trust.mem0.ai/)
+
+[Privacy Policy](../privacy-policy)
+
+[Status](https://status.mem0.ai/)
+
+USECASES
+
+[Customer Support](../usecase/customer-support)
+
+[Healthcare](../usecase/healthcare)
+
+[Education](../usecase/education)
+
+[Sales & CRM](../usecase/sales)
+
+[E-Commerce](../usecase/e-commerce)
+
+CONTACT
+
+[Support](/cdn-cgi/l/email-protection#e0939590908f9294a08d858dd0ce8189)
+
+[Get a Demo](../demo)
+
+[![](https://framerusercontent.com/images/xnB7E7DHE9wzabmpFIdmGt3GU.png?width=56&height=51)](https://x.com/mem0ai)[![](https://framerusercontent.com/images/JmG958AxfWLlxzVk3MzeGLlPKSA.png?width=528&height=528)](https://www.linkedin.com/company/mem0/)[![](https://framerusercontent.com/images/Oj0hnfkWu2AxIPPghn07zmNI31w.png?width=65&height=64)](https://github.com/mem0ai/mem0)[![](https://framerusercontent.com/images/OJJwpxletqrAx9Sa0m4DYgQkvgI.png?width=65&height=64)](https://discord.com/invite/skNhacB39h)
+
+Summarize with AI
+
+![](https://framerusercontent.com/images/ZekmYAO980UkfCZkdFbzO9AIP4.png?width=481&height=480)
+
+Summarize
+
+Blog
+
+![](https://framerusercontent.com/images/RqYW1x4CNTZM4y0R036hHGEXA.png?width=480&height=480)
+
+Summarize
+
+Blog
+
+![](https://framerusercontent.com/images/TuH0AS8VfUjdjzOiYBwYLE4eeo.png?width=480&height=480)
+
+Summarize
+
+Blog
+
+![](https://framerusercontent.com/images/srRcI4OvxCHeOHBcAy2z1i2KmyY.png?width=480&height=480)
+
+Summarize
+
+Blog
+
+[![](https://framerusercontent.com/images/1Cf401QEN4Qfq9o75dsCqnP020.png?width=960&height=960)](https://trust.delve.co/mem0)[![](https://framerusercontent.com/images/IzimMAQgezQWlN5WeB4zttUbTAQ.png?width=960&height=960)](https://trust.delve.co/mem0)
+
+© 2026 Mem0. All rights reserved.
+
+![](https://framerusercontent.com/images/ZdusxiHmQAuiEpIyU5Z6lsjn7g.png?width=760&height=760)
+
+PRODUCTS
+
+[Mem0](https://mem0.dev/platform/w)
+
+[OpenMemory](../openmemory)
+
+RESOURCES
+
+[Blog](../blog)
+
+[Research](../research)
+
+[Docs](https://docs.mem0.ai/)
+
+[Changelog](../changelog)
+
+[Investors](../investors)
+
+[Careers](../careers)
+
+[Trust Center](https://trust.mem0.ai/)
+
+[Privacy Policy](../privacy-policy)
+
+[Status](https://status.mem0.ai/)
+
+USECASES
+
+[Customer Support](../usecase/customer-support)
+
+[Healthcare](../usecase/healthcare)
+
+[Education](../usecase/education)
+
+[Sales & CRM](../usecase/sales)
+
+[E-Commerce](../usecase/e-commerce)
+
+CONTACT
+
+[Support](/cdn-cgi/l/email-protection#acdfd9dcdcc3ded8ecc1c9c19c82cdc5)
+
+[Get a Demo](../demo)
+
+[![](https://framerusercontent.com/images/xnB7E7DHE9wzabmpFIdmGt3GU.png?width=56&height=51)](https://x.com/mem0ai)[![](https://framerusercontent.com/images/JmG958AxfWLlxzVk3MzeGLlPKSA.png?width=528&height=528)](https://www.linkedin.com/company/mem0/)[![](https://framerusercontent.com/images/Oj0hnfkWu2AxIPPghn07zmNI31w.png?width=65&height=64)](https://github.com/mem0ai/mem0)[![](https://framerusercontent.com/images/OJJwpxletqrAx9Sa0m4DYgQkvgI.png?width=65&height=64)](https://discord.com/invite/skNhacB39h)
+
+Summarize with AI
+
+![](https://framerusercontent.com/images/ZekmYAO980UkfCZkdFbzO9AIP4.png?width=481&height=480)
+
+Summarize
+
+Blog
+
+![](https://framerusercontent.com/images/RqYW1x4CNTZM4y0R036hHGEXA.png?width=480&height=480)
+
+Summarize
+
+Blog
+
+![](https://framerusercontent.com/images/TuH0AS8VfUjdjzOiYBwYLE4eeo.png?width=480&height=480)
+
+Summarize
+
+Blog
+
+![](https://framerusercontent.com/images/srRcI4OvxCHeOHBcAy2z1i2KmyY.png?width=480&height=480)
+
+Summarize
+
+Blog
+
+[![](https://framerusercontent.com/images/1Cf401QEN4Qfq9o75dsCqnP020.png?width=960&height=960)](https://trust.delve.co/mem0)[![](https://framerusercontent.com/images/IzimMAQgezQWlN5WeB4zttUbTAQ.png?width=960&height=960)](https://trust.delve.co/mem0)
+
+© 2026 Mem0. All rights reserved.
+
+![](https://framerusercontent.com/images/ZdusxiHmQAuiEpIyU5Z6lsjn7g.png?width=760&height=760)
+
+PRODUCTS
+
+[Mem0](https://mem0.dev/platform/w)
+
+[OpenMemory](../openmemory)
+
+RESOURCES
+
+[Blog](../blog)
+
+[Research](../research)
+
+[Docs](https://docs.mem0.ai/)
+
+[Changelog](../changelog)
+
+[Investors](../investors)
+
+[Careers](../careers)
+
+[Trust Center](https://trust.mem0.ai/)
+
+[Privacy Policy](../privacy-policy)
+
+[Status](https://status.mem0.ai/)
+
+USECASES
+
+[Customer Support](../usecase/customer-support)
+
+[Healthcare](../usecase/healthcare)
+
+[Education](../usecase/education)
+
+[Sales & CRM](../usecase/sales)
+
+[E-Commerce](../usecase/e-commerce)
+
+CONTACT
+
+[Support](/cdn-cgi/l/email-protection#9be8eeebebf4e9efdbf6fef6abb5faf2)
+
+[Get a Demo](../demo)
+
+[![](https://framerusercontent.com/images/xnB7E7DHE9wzabmpFIdmGt3GU.png?width=56&height=51)](https://x.com/mem0ai)[![](https://framerusercontent.com/images/JmG958AxfWLlxzVk3MzeGLlPKSA.png?width=528&height=528)](https://www.linkedin.com/company/mem0/)[![](https://framerusercontent.com/images/Oj0hnfkWu2AxIPPghn07zmNI31w.png?width=65&height=64)](https://github.com/mem0ai/mem0)[![](https://framerusercontent.com/images/OJJwpxletqrAx9Sa0m4DYgQkvgI.png?width=65&height=64)](https://discord.com/invite/skNhacB39h)
+
+Summarize with AI
+
+![](https://framerusercontent.com/images/ZekmYAO980UkfCZkdFbzO9AIP4.png?width=481&height=480)
+
+Summarize
+
+Blog
+
+![](https://framerusercontent.com/images/RqYW1x4CNTZM4y0R036hHGEXA.png?width=480&height=480)
+
+Summarize
+
+Blog
+
+![](https://framerusercontent.com/images/TuH0AS8VfUjdjzOiYBwYLE4eeo.png?width=480&height=480)
+
+Summarize
+
+Blog
+
+![](https://framerusercontent.com/images/srRcI4OvxCHeOHBcAy2z1i2KmyY.png?width=480&height=480)
+
+Summarize
+
+Blog
+
+[![](https://framerusercontent.com/images/1Cf401QEN4Qfq9o75dsCqnP020.png?width=960&height=960)](https://trust.delve.co/mem0)[![](https://framerusercontent.com/images/IzimMAQgezQWlN5WeB4zttUbTAQ.png?width=960&height=960)](https://trust.delve.co/mem0)
+
+© 2026 Mem0. All rights reserved.
+
+![](https://framerusercontent.com/images/ZdusxiHmQAuiEpIyU5Z6lsjn7g.png?width=760&height=760)
+
+Blog
+
+---
+
+ai-agents-for-beginners/12-context-engineering/README.md at main
+**URL:** https://github.com/microsoft/ai-agents-for-beginners/blob/main/12-context-engineering/README.md
+ai-agents-for-beginners/12-context-engineering/README.md at main · microsoft/ai-agents-for-beginners · GitHub
+
+
+
+[Skip to content](#start-of-content)
+
+
+
+
+
+
+
+
+
+
+
+
+
+Navigation Menu
+---------------
+
+Toggle navigation
+
+[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fai-agents-for-beginners%2Fblob%2Fmain%2F12-context-engineering%2FREADME.md)
+
+Appearance settings
+
+* Platform
+
+  + AI CODE CREATION
+    - [GitHub CopilotWrite better code with AI](https://github.com/features/copilot)
+    - [GitHub SparkBuild and deploy intelligent apps](https://github.com/features/spark)
+    - [GitHub ModelsManage and compare prompts](https://github.com/features/models)
+    - [MCP RegistryNewIntegrate external tools](https://github.com/mcp)
+  + DEVELOPER WORKFLOWS
+    - [ActionsAutomate any workflow](https://github.com/features/actions)
+    - [CodespacesInstant dev environments](https://github.com/features/codespaces)
+    - [IssuesPlan and track work](https://github.com/features/issues)
+    - [Code ReviewManage code changes](https://github.com/features/code-review)
+  + APPLICATION SECURITY
+    - [GitHub Advanced SecurityFind and fix vulnerabilities](https://github.com/security/advanced-security)
+    - [Code securitySecure your code as you build](https://github.com/security/advanced-security/code-security)
+    - [Secret protectionStop leaks before they start](https://github.com/security/advanced-security/secret-protection)
+  + EXPLORE
+    - [Why GitHub](https://github.com/why-github)
+    - [Documentation](https://docs.github.com)
+    - [Blog](https://github.blog)
+    - [Changelog](https://github.blog/changelog)
+    - [Marketplace](https://github.com/marketplace)
+
+  [View all features](https://github.com/features)
+* Solutions
+
+  + BY COMPANY SIZE
+    - [Enterprises](https://github.com/enterprise)
+    - [Small and medium teams](https://github.com/team)
+    - [Startups](https://github.com/enterprise/startups)
+    - [Nonprofits](https://github.com/solutions/industry/nonprofits)
+  + BY USE CASE
+    - [App Modernization](https://github.com/solutions/use-case/app-modernization)
+    - [DevSecOps](https://github.com/solutions/use-case/devsecops)
+    - [DevOps](https://github.com/solutions/use-case/devops)
+    - [CI/CD](https://github.com/solutions/use-case/ci-cd)
+    - [View all use cases](https://github.com/solutions/use-case)
+  + BY INDUSTRY
+    - [Healthcare](https://github.com/solutions/industry/healthcare)
+    - [Financial services](https://github.com/solutions/industry/financial-services)
+    - [Manufacturing](https://github.com/solutions/industry/manufacturing)
+    - [Government](https://github.com/solutions/industry/government)
+    - [View all industries](https://github.com/solutions/industry)
+
+  [View all solutions](https://github.com/solutions)
+* Resources
+
+  + EXPLORE BY TOPIC
+    - [AI](https://github.com/resources/articles?topic=ai)
+    - [Software Development](https://github.com/resources/articles?topic=software-development)
+    - [DevOps](https://github.com/resources/articles?topic=devops)
+    - [Security](https://github.com/resources/articles?topic=security)
+    - [View all topics](https://github.com/resources/articles)
+  + EXPLORE BY TYPE
+    - [Customer stories](https://github.com/customer-stories)
+    - [Events & webinars](https://github.com/resources/events)
+    - [Ebooks & reports](https://github.com/resources/whitepapers)
+    - [Business insights](https://github.com/solutions/executive-insights)
+    - [GitHub Skills](https://skills.github.com)
+  + SUPPORT & SERVICES
+    - [Documentation](https://docs.github.com)
+    - [Customer support](https://support.github.com)
+    - [Community forum](https://github.com/orgs/community/discussions)
+    - [Trust center](https://github.com/trust-center)
+    - [Partners](https://github.com/partners)
+
+  [View all resources](https://github.com/resources)
+* Open Source
+
+  + COMMUNITY
+    - [GitHub SponsorsFund open source developers](https://github.com/sponsors)
+  + PROGRAMS
+    - [Security Lab](https://securitylab.github.com)
+    - [Maintainer Community](https://maintainers.github.com)
+    - [Accelerator](https://github.com/accelerator)
+    - [Archive Program](https://archiveprogram.github.com)
+  + REPOSITORIES
+    - [Topics](https://github.com/topics)
+    - [Trending](https://github.com/trending)
+    - [Collections](https://github.com/collections)
+* Enterprise
+
+  + ENTERPRISE SOLUTIONS
+    - [Enterprise platformAI-powered developer platform](https://github.com/enterprise)
+  + AVAILABLE ADD-ONS
+    - [GitHub Advanced SecurityEnterprise-grade security features](https://github.com/security/advanced-security)
+    - [Copilot for BusinessEnterprise-grade AI features](https://github.com/features/copilot/copilot-business)
+    - [Premium SupportEnterprise-grade 24/7 support](https://github.com/premium-support)
+* [Pricing](https://github.com/pricing)
+
+Search or jump to...
+
+
+Search code, repositories, users, issues, pull requests...
+==========================================================
+
+Search
+
+Clear
+
+[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
+
+Provide feedback
+================
+
+We read every piece of feedback, and take your input very seriously.
+
+
+Include my email address so I can be contacted
+
+Cancel
+ Submit feedback
+
+
+
+
+
+Saved searches
+==============
+
+Use saved searches to filter your results more quickly
+------------------------------------------------------
+
+Name
+
+Query
+
+To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
+
+Cancel
+ Create saved search
+
+[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fmicrosoft%2Fai-agents-for-beginners%2Fblob%2Fmain%2F12-context-engineering%2FREADME.md)
+
+[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fblob%2Fshow&source=header-repo&source_repo=microsoft%2Fai-agents-for-beginners)
+
+Appearance settings
+
+Resetting focus
+
+You signed in with another tab or window. Reload to refresh your session.
+You signed out in another tab or window. Reload to refresh your session.
+You switched accounts on another tab or window. Reload to refresh your session.
+ 
+
+
+Dismiss alert
+
+{{ message }}
+
+[microsoft](/microsoft) 
+/
+**[ai-agents-for-beginners](/microsoft/ai-agents-for-beginners)**
+Public
+
+* [Notifications](/login?return_to=%2Fmicrosoft%2Fai-agents-for-beginners) You must be signed in to change notification settings
+* [Fork
+  18.8k](/login?return_to=%2Fmicrosoft%2Fai-agents-for-beginners)
+* [Star
+   54.1k](/login?return_to=%2Fmicrosoft%2Fai-agents-for-beginners)
+
+* [Code](/microsoft/ai-agents-for-beginners)
+* [Issues
+  2](/microsoft/ai-agents-for-beginners/issues)
+* [Pull requests
+  3](/microsoft/ai-agents-for-beginners/pulls)
+* [Actions](/microsoft/ai-agents-for-beginners/actions)
+* [Projects](/microsoft/ai-agents-for-beginners/projects)
+* [Models](/microsoft/ai-agents-for-beginners/models)
+* [Security
+  0](/microsoft/ai-agents-for-beginners/security)
+* [Insights](/microsoft/ai-agents-for-beginners/pulse)
+
+Additional navigation options
+
+
+* [Code](/microsoft/ai-agents-for-beginners)
+* [Issues](/microsoft/ai-agents-for-beginners/issues)
+* [Pull requests](/microsoft/ai-agents-for-beginners/pulls)
+* [Actions](/microsoft/ai-agents-for-beginners/actions)
+* [Projects](/microsoft/ai-agents-for-beginners/projects)
+* [Models](/microsoft/ai-agents-for-beginners/models)
+* [Security](/microsoft/ai-agents-for-beginners/security)
+* [Insights](/microsoft/ai-agents-for-beginners/pulse)
+
+FilesExpand file tree
+---------------------
+
+main
+
+Breadcrumbs
+-----------
+
+1. [ai-agents-for-beginners](/microsoft/ai-agents-for-beginners/tree/main)
+2. /[12-context-engineering](/microsoft/ai-agents-for-beginners/tree/main/12-context-engineering)
+
+/
+
+README.md
+=========
+
+Copy path
+
+BlameMore file actions
+
+BlameMore file actions
+
+Latest commit
+-------------
+
+History
+-------
+
+[History](/microsoft/ai-agents-for-beginners/commits/main/12-context-engineering/README.md)
+
+History
+
+157 lines (83 loc) · 12.8 KB
+
+main
+
+Breadcrumbs
+-----------
+
+1. [ai-agents-for-beginners](/microsoft/ai-agents-for-beginners/tree/main)
+2. /[12-context-engineering](/microsoft/ai-agents-for-beginners/tree/main/12-context-engineering)
+
+/
+
+README.md
+=========
+
+Top
+
+File metadata and controls
+--------------------------
+
+* Preview
+* Code
+* Blame
+
+157 lines (83 loc) · 12.8 KB
+
+[Raw](https://github.com/microsoft/ai-agents-for-beginners/raw/refs/heads/main/12-context-engineering/README.md)
+
+Copy raw file
+
+Download raw file
+
+Outline
+
+Edit and raw actions
+
+Context Engineering for AI Agents
+=================================
+
+[![Context Engineering](/microsoft/ai-agents-for-beginners/raw/main/12-context-engineering/images/lesson-12-thumbnail.png)](https://youtu.be/F5zqRV7gEag)
+
+> *(Click the image above to view video of this lesson)*
+
+Understanding the complexity of the application you are building an AI agent for is important to making a reliable one. We need to build AI Agents that effectively manage information to address complex needs beyond prompt engineering.
+
+In this lesson, we will look at what context engineering is and its role in building AI agents.
+
+Introduction
+------------
+
+This lesson will cover:
+
+• **What Context Engineering is** and why it's different from prompt engineering.
+
+• **Strategies for effective Context Engineering**, including how to write, select, compress, and isolate information.
+
+• **Common Context Failures** that can derail your AI agent and how to fix them.
+
+Learning Goals
+--------------
+
+After completing this lesson, you will know understand how to:
+
+• **Define context engineering** and differentiate it from prompt engineering.
+
+• **Identify the key components of context** in Large Language Model (LLM) applications.
+
+• **Apply strategies for writing, selecting, compressing, and isolating context** to improve agent performance.
+
+• **Recognize common context failures** such as poisoning, distraction, confusion, and clash, and implement mitigation techniques.
+
+What is Context Engineering?
+----------------------------
+
+For AI Agents, context is what drives the planning of an AI Agent to take certain actions. Context Engineering is the practice of making sure the AI Agent has the right information to complete the next step of the task. The context window is limited in size, so as agent builders we need to build systems and processes to manage adding, removing, and condensing the information in the context window.
+
+### Prompt Engineering vs Context Engineering
+
+Prompt engineering is focused on a single set of static instructions to effectively guide the AI Agents with a set of rules. Context engineering is how to manage a dynamic set of information, including the initial prompt, to ensure that the AI Agent has what it needs over time. The main idea around context engineering is to make this process repeatable and reliable.
+
+### Types of Context
+
+[![Types of Context](/microsoft/ai-agents-for-beginners/raw/main/12-context-engineering/images/context-types.png)](https://youtu.be/F5zqRV7gEag)
+
+It is important to remember that context is not just one thing. The information that the AI Agent needs can come from a variety of different sources and it is up to us to ensure the agent has access to these sources:
+
+The types of context an AI agent might need to manage include:
+
+• **Instructions:** These are like the agent's "rules" – prompts, system messages, few-shot examples (showing the AI how to do something), and descriptions of tools it can use. This is where the focus of prompt engineering combines with context engineering.
+
+• **Knowledge:** This covers facts, information retrieved from databases, or long-term memories the agent has accumulated. This includes integrating a Retrieval Augmented Generation (RAG) system if an agent needs access to different knowledge stores and databases.
+
+• **Tools:** These are the definitions of external functions, APIs and MCP Servers that the agent can call, along with the feedback (results) it gets from using them.
+
+• **Conversation History:** The ongoing dialogue with a user. As time passes, these conversations become longer and more complex which means they take up space in the context window.
+
+• **User Preferences:** Information learned about a user's likes or dislikes over time. These could be stored and called upon when making key decisions to help the user.
+
+Strategies for Effective Context Engineering
+--------------------------------------------
+
+### Planning Strategies
+
+[![Context Engineering Best Practices](/microsoft/ai-agents-for-beginners/raw/main/12-context-engineering/images/best-practices.png)](https://youtu.be/F5zqRV7gEag)
+
+Good context engineering starts with good planning. Here is an approach that will help you start to think about how to apply the concept of context engineering:
+
+1. **Define Clear Results** - The results of the tasks that AI Agents will be assigned should be clearly defined. Answer the question - "What will the world look like when the AI Agent is done with its task?" In other words, what change, information, or response should the user have after interacting with the AI Agent.
+2. **Map the Context** - Once you have defined the results of the AI Agent, you need to answer the question of "What information does the AI Agent need in order to complete this task?". This way you can start to map the context of where that information can be located.
+3. **Create Context Pipelines** - Now that you know where the information is, you need to answer the question "How will the Agent get this information?". This can be done in a variety of ways including RAG, use of MCP servers and other tools.
+
+### Practical Strategies
+
+Planning is important but once the information starts to flow into our agent's context window, we need to have practical strategies to manage it:
+
+#### Managing Context
+
+While some information will be added to the context window automatically, context engineering is about taking a more active role of this information which can be done by a few strategies:
+
+1. **Agent Scratchpad**
+   This allows for an AI Agent to takes notes of relevant information about the current tasks and user interactions during a single session. This should exist outside of the context window in a file or runtime object that the agent can later retrieve during this session if needed.
+2. **Memories**
+   Scratchpads are good for managing information outside of the context window of a single session. Memories enable agents to store and retrieve relevant information across multiple sessions. This could include summaries, user preferences and feedback for improvements in the future.
+3. **Compressing Context**
+   Once the context window grows and is nearing its limit, techniques such as summarization and trimming can be used. This includes either keeping only the most relevant information or removing older messages.
+4. **Multi-Agent Systems**
+   Developing multi-agent system is a form of context engineering because each agent has its own context window. How that context is shared and passed to different agents is another thing to plan out when building these systems.
+5. **Sandbox Environments**
+   If an agent needs to run some code or process large amounts of information in a document, this can take a large amount of tokens to process the results. Instead of having this all stored in the context window, the agent can use a sandbox environment that is able to run this code and only read the results and other relevant information.
+6. **Runtime State Objects**
+   This is done by creating containers of information to manage situations when the Agent needs to have access to certain information. For a complex task, this would enable an Agent to store the results of each subtask step by step, allowing the context to remain connected only to that specific subtask.
+
+### Example of Context Engineering
+
+Let's say we want an AI agent to **"Book me a trip to Paris."**
+
+• A simple agent using only prompt engineering might just respond: **"Okay, when would you like to go to Paris?**". It only processed your direct question at the time that the user asked.
+
+• An agent using the context engineering strategies covered would do much more. Before even responding, its system might:
+
+  ◦ **Check your calendar** for available dates (retrieving real-time data).
+
+ ◦ **Recall past travel preferences** (from long-term memory) like your preferred airline, budget, or whether you prefer direct flights.
+
+ ◦ **Identify available tools** for flight and hotel booking.
+
+* Then, an example response could be: "Hey [Your Name]! I see you're free the first week of October. Shall I look for direct flights to Paris on [Preferred Airline] within your usual budget of [Budget]?". This richer, context-aware response demonstrates the power of context engineering.
+
+Common Context Failures
+-----------------------
+
+### Context Poisoning
+
+**What it is:** When a hallucination (false information generated by the LLM) or an error enters the context and is repeatedly referenced, causing the agent to pursue impossible goals or develop nonsense strategies.
+
+**What to do:** Implement **context validation** and **quarantine**. Validate information before it's added to long-term memory. If potential poisoning is detected, start fresh context threads to prevent the bad information from spreading.
+
+**Travel Booking Example:** Your agent hallucinates a **direct flight from a small local airport to a distant international city** that doesn't actually offer international flights. This non-existent flight detail gets saved into the context. Later, when you ask the agent to book, it keeps trying to find tickets for this impossible route, leading to repeated errors.
+
+**Solution:** Implement a step that **validates flight existence and routes with a real-time API** *before* adding the flight detail to the agent's working context. If the validation fails, the erroneous information is "quarantined" and not used further.
+
+### Context Distraction
+
+**What it is:** When the context becomes so large that the model focuses too much on the accumulated history instead of using what it learned during training, leading to repetitive or unhelpful actions. Models may begin making mistakes even before the context window is full.
+
+**What to do:** Use **context summarization**. Periodically compress accumulated information into shorter summaries, keeping important details while removing redundant history. This helps "reset" the focus.
+
+**Travel Booking Example:** You've been discussing various dream travel destinations for a long time, including a detailed recounting of your backpacking trip from two years ago. When you finally ask to **"find me a cheap flight for** **next month**\*\*,"\*\* the agent gets bogged down in the old, irrelevant details and keeps asking about your backpacking gear or past itineraries, neglecting your current request.
+
+**Solution:** After a certain number of turns or when the context grows too large, the agent should **summarize the most recent and relevant parts of the conversation** – focusing on your current travel dates and destination – and use that condensed summary for the next LLM call, discarding the less relevant historical chat.
+
+### Context Confusion
+
+**What it is:** When unnecessary context, often in the form of too many available tools, causes the model to generate bad responses or call irrelevant tools. Smaller models are especially prone to this.
+
+**What to do:** Implement **tool loadout management** using RAG techniques. Store tool descriptions in a vector database and select *only* the most relevant tools for each specific task. Research shows limiting tool selections to fewer than 30.
+
+**Travel Booking Example:** Your agent has access to dozens of tools: `book_flight`, `book_hotel`, `rent_car`, `find_tours`, `currency_converter`, `weather_forecast`, `restaurant_reservations`, etc. You ask, **"What's the best way to get around Paris?"** Due to the sheer number of tools, the agent gets confused and attempts to call `book_flight` *within* Paris, or `rent_car` even though you prefer public transport, because the tool descriptions might overlap or it simply can't discern the best one.
+
+**Solution:** Use **RAG over tool descriptions**. When you ask about getting around Paris, the system dynamically retrieves *only* the most relevant tools like `rent_car` or `public_transport_info` based on your query, presenting a focused "loadout" of tools to the LLM.
+
+### Context Clash
+
+**What it is:** When conflicting information exists within the context, leading to inconsistent reasoning or bad final responses. This often happens when information arrives in stages, and early, incorrect assumptions remain in the context.
+
+**What to do:** Use **context pruning** and **offloading**. Pruning means removing outdated or conflicting information as new details arrive. Offloading gives the model a separate "scratchpad" workspace to process information without cluttering the main context.
+
+**Travel Booking Example:** You initially tell your agent, **"I want to fly economy class."** Later in the conversation, you change your mind and say, **"Actually, for this trip, let's go business class."** If both instructions remain in the context, the agent might receive conflicting search results or get confused about which preference to prioritize.
+
+**Solution:** Implement **context pruning**. When a new instruction contradicts an old one, the older instruction is removed or explicitly overridden in the context. Alternatively, the agent can use a **scratchpad** to reconcile conflicting preferences before deciding, ensuring only the final, consistent instruction guides its actions.
+
+Got More Questions About Context Engineering?
+---------------------------------------------
+
+Join the [Microsoft Foundry Discord](https://aka.ms/ai-agents/discord) to meet with other learners, attend office hours and get your AI Agents questions answered.
+
+Footer
+------
+
+© 2026 GitHub, Inc.
+
+### Footer navigation
+
+* [Terms](https://docs.github.com/site-policy/github-terms/github-terms-of-service)
+* [Privacy](https://docs.github.com/site-policy/privacy-policies/github-privacy-statement)
+* [Security](https://github.com/security)
+* [Status](https://www.githubstatus.com/)
+* [Community](https://github.community/)
+* [Docs](https://docs.github.com/)
+* [Contact](https://support.github.com?tags=dotcom-footer)
+* Manage cookies
+* Do not share my personal information
+
+
+
+You can’t perform that action at this time.
+
+---
+
+Context Engineering - LLM Memory and Retrieval for AI Agents
+**URL:** https://weaviate.io/blog/context-engineering
+Context Engineering - LLM Memory and Retrieval for AI Agents | Weaviate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![](https://static.scarf.sh/a.png?x-pxid=a41b0758-a3a9-4874-a880-8b5d5a363d40)
+
+
+
+![](https://px.ads.linkedin.com/collect/?pid=6758089&fmt=gif)
+
+
+
+
+
+[← Back to Blogs](/blog)
+
+[Skip to main content](#__docusaurus_skipToContent_fallback)
+
+[Introducing Weaviate Agent Skills – Read our Blog](/blog/weaviate-agent-skills)
+
+[![Weaviate](/img/site/weaviate-logo-horizontal-light-1.svg)![Weaviate](/img/site/weaviate-logo-horizontal-dark-1.svg)](/)
+
+[Product](#)
+
+* + Overview
+  + [Vector Database](/platform)
+  + [Embeddings](/product/embeddings)
+  + [Integrations](/product/integrations)
+  + [All Products](/product)
+  + [Previews](/product-previews)
+  + Weaviate Agents
+  + [Query Agent](/product/query-agent)
+  + [Transformation Agent](/product/transformation-agent)
+  + [Personalization Agent](/product/personalization-agent)
+  + Deployment
+  + [Shared Cloud](/deployment/shared)
+  + [Dedicated Cloud](/deployment/dedicated)
+  + [Enablement](/deployment/enablement)
+
+  + Overview
+  + [Vector Database](/platform)
+  + [Embeddings](/product/embeddings)
+  + [Integrations](/product/integrations)
+  + [All Products](/product)
+  + [Previews](/product-previews)
+  + Weaviate Agents
+  + [Query Agent](/product/query-agent)
+  + [Transformation Agent](/product/transformation-agent)
+  + [Personalization Agent](/product/personalization-agent)
+  + Deployment
+  + [Shared Cloud](/deployment/shared)
+  + [Dedicated Cloud](/deployment/dedicated)
+  + [Enablement](/deployment/enablement)
+
+[Solutions](#)
+
+* + Use Cases
+  + [RAG](/rag)
+  + [Hybrid Search](/hybrid-search)
+  + [Agentic AI](/agentic-ai)
+  + [Cost-Performance Optimization](/cost-performance-optimization)
+  + Examples
+  + [Case Studies](/case-studies)
+  + [Demos](/community/demos)
+
+  + Use Cases
+  + [RAG](/rag)
+  + [Hybrid Search](/hybrid-search)
+  + [Agentic AI](/agentic-ai)
+  + [Infrastructure Optimization](/deployment/dedicated)
+  + Examples
+  + [Case Studies](/case-studies)
+  + [Demos](/community/demos)
+
+[Developers](#)
+
+* + Build
+  + [Weaviate Database Docs](https://docs.weaviate.io/weaviate)
+  + [Weaviate Cloud Docs](https://docs.weaviate.io/cloud)
+  + [Weaviate Deployment Docs](https://docs.weaviate.io/deploy)
+  + [Weaviate Agents Docs](https://docs.weaviate.io/agents)
+  + [GitHub](https://github.com/weaviate/weaviate)
+  + Learn
+  + [Learning Center](/learn)
+  + [Blog](/blog)
+  + [Academy](https://academy.weaviate.io/)
+  + [Knowledge Cards](/learn/knowledgecards)
+  + [Paper Reviews](/papers)
+  + [Podcasts](/podcast)
+  + Engage
+  + [Events & Webinars](/community/events)
+  + [Weaviate Hero Program](/community)
+  + [Forum](https://forum.weaviate.io/)
+
+  + Build
+  [Weaviate Database Docs](https://docs.weaviate.io/weaviate)
+* [Weaviate Cloud Docs](https://docs.weaviate.io/cloud)
+* [Weaviate Deployment Docs](https://docs.weaviate.io/deploy)
+* [Weaviate Agents Docs](https://docs.weaviate.io/agents)
+* [GitHub](https://github.com/weaviate/weaviate)
+* Learn
+* [Learning Center](/learn)
+* [Blog](/blog)
+* [Academy](https://academy.weaviate.io/)
+* [Knowledge Cards](/learn/knowledgecards)
+* [Paper Reviews](/papers)
+* [Podcasts](/podcast)
+* Engage
+* [Events & Webinars](/community/events)
+* [Weaviate Hero Program](/community)
+* [Forum](https://forum.weaviate.io/)
+
+[Company](#)
+
+* + Partners
+  + [Overview](/partners)
+  + [AWS](/partners/aws)
+  + [Google](/partners/gcp)
+  + [Snowflake](/partners/snowflake)
+  + [Databricks](/partners/databricks)
+  + About
+  + [Company](/company/about-us)
+  + [Careers](/company/careers)
+  + [Remote](/company/remote)
+  + [Playbook](/company/playbook)
+  + [Investors](/company/investors)
+  + [Contact Us](/contact)
+
+  + About
+  + [Company](/company/about-us)
+  + [Careers](/company/careers)
+  + [Remote](/company/remote)
+  + [Playbook](/company/playbook)
+  + [Investors](/company/investors)
+  + [Contact Us](/contact)
+  + Partners
+  + [Overview](/partners)
+  + [AWS](/partners/aws)
+  + [Google](/partners/gcp)
+  + [Snowflake](/partners/snowflake)
+  + [Databricks](/partners/databricks)
+
+[Pricing](/pricing)[GitHub](https://github.com/weaviate/weaviate) [Login](/go/console)[Try Now](/go/console)[Contact](/contact)
+
+Context Engineering - LLM Memory and Retrieval for AI Agents
+============================================================
+
+December 9, 2025 · 21 min read
+
+[![Femke Plantinga](/img/people/icon/femke.jpg)](https://www.linkedin.com/in/femke-plantinga/)
+
+[Femke Plantinga](https://www.linkedin.com/in/femke-plantinga/)
+
+Team Lead Growth
+
+[![Prajjwal Yadav](/img/people/icon/prajjwal.jpg)](https://www.linkedin.com/in/prajjwalyd)
+
+[Prajjwal Yadav](https://www.linkedin.com/in/prajjwalyd)
+
+Developer Advocate Intern
+
+[![Victoria Slocum](/img/people/icon/victoria.jpg)](https://www.linkedin.com/in/victorialslocum/)
+
+[Victoria Slocum](https://www.linkedin.com/in/victorialslocum/)
+
+Machine Learning Engineer
+
+![hero image](/assets/images/hero-a554396e53e1652ca3ac0bd1fff0aa7d.png)
+
+Most LLM demos start out feeling magical. They can draft emails, rewrite code, or even book a vacation, and for a few minutes, it seems like the model truly "understands" everything thrown at it. But the illusion shatters when tasks get messy and real. When success depends on yesterday's incident report, your team's internal documentation, or a long troubleshooting Slack thread, the model suddenly stumbles. It can't remember what was said ten messages ago, has no access to your private data, and it just starts guessing instead of reasoning.
+
+What looks like “forgetting” is really a memory limitation. By default, an LLM only has short-term memory—the current context window.
+
+To build reliable agents, you need a system that combines the context window with long-term memory (retrieval from external stores like vector databases) and selectively decides what to include at each step.
+
+The difference between a flashy demo and a dependable production system isn't about switching to a "smarter" model. It's about how information is selected, structured, and delivered to the model at each step of a task. In other words, the difference is **context**.
+
+All LLMs are constrained by finite **context windows** that force hard trade‑offs about what the model can "see" at once. Context engineering is all about treating that window as a scarce resource and designing everything around it (retrieval, memory systems, tool integrations, prompts, etc.) so that the model spends its limited attention budget only on high‑signal tokens.
+
+![context engineering overview](/assets/images/context-engineering-9510158fe8e175b54d45d63e7309540a.png)
+
+But What Is a Context Window?[​](#but-what-is-a-context-window "Direct link to But What Is a Context Window?")
+--------------------------------------------------------------------------------------------------------------
+
+The context window is the model's active workspace, where it holds instructions and information for a current task. Every word, number, and piece of punctuation consumes space in this window. Think of it like a whiteboard: once it fills up, older information must be erased to make room for the new, causing important past details to be lost.
+In more technical terms, a context window refers to the maximum amount of input data a language model can consider at one time when generating responses, measured in [tokens](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them). This window includes all your inputs, model's outputs, tool calls, and retrieved documents, acting as the model’s short-term memory. Every token placed in the context window directly influences what the model can "see" and how it responds.
+
+Context Engineering vs. Prompt Engineering[​](#context-engineering-vs-prompt-engineering "Direct link to Context Engineering vs. Prompt Engineering")
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Prompt engineering focuses on how you phrase and structure instructions for the LLM to generate the best results, such as writing clear/clever prompts, adding examples, or asking the model to "think step-by-step.” While important, prompt engineering alone cannot fix the fundamental limitation of a disconnected model.
+
+Context engineering, on the other hand, is the discipline of designing the architecture that feeds an LLM the right information at the right time. It's about building the bridges that connect a disconnected model to the outside world, retrieving external data, using tools, and giving it a memory to ground its responses in facts, not just training data.
+
+![prompt versus context engineering](/assets/images/prompt-versus-1392c82f57fb513345a9e68975465252.png)
+
+In simple words, prompt engineering is how you ask the question, while context engineering is making sure the model has access to the right textbook, calculator, and even notes/memories from your previous conversation before it starts thinking. The quality and effectiveness of LLMs are heavily influenced by the prompts they receive, but the way you phrase a prompt can only go so far without a well-engineered context. Prompting techniques like Chain-of-Thought, Few-shot learning, and ReAct are most effective when combined with retrieved documents, user history, or domain-specific data.
+
+In practice, context engineering is how you build LLM memory: deciding what stays in the context window, what gets stored as long-term memory, and what gets retrieved later.
+
+The Context Window Challenge[​](#the-context-window-challenge "Direct link to The Context Window Challenge")
+------------------------------------------------------------------------------------------------------------
+
+The LLM context window can only hold so much information at once. This fundamental constraint shapes what agents and agentic systems are currently capable of. Every time an agent processes information, it must decide what remains active, what can be summarized/compressed/deleted, what should be stored externally, and how much space to reserve for reasoning. It's tempting to assume that shoving everything into bigger context windows solves this problem, but this is generally not the case. This is why production agents need deliberate memory architecture—not just bigger windows.
+
+Here are the critical failure modes that emerge as context grows:
+
+* **Context Poisoning**: Incorrect or hallucinated information enters the context. Because agents reuse and build upon that context, these errors continue and compound.
+* **Context Distraction**: The agent becomes burdened by too much past information; history, tool outputs, summaries, and over-relies on repeating past behavior rather than reasoning fresh.
+* **Context Confusion**: Irrelevant tools or documents crowd the context, distracting the model and causing it to use the wrong tool or instructions.
+* **Context Clash**: Contradictory information within the context misleads the agent, leaving it stuck between conflicting assumptions.
+
+![common failure modes](/assets/images/failure-modes-b633fb7abc3892412ab106475a0d4353.png)
+
+These aren't just technical limitations, these are core design challenges of any modern AI app. You can't fix this fundamental limitation by simply writing better prompts or increasing the maximum size of the context window. You have to build a system around the model.
+
+That is what Context Engineering is all about!
+
+The Six Pillars of Context Engineering[​](#the-six-pillars-of-context-engineering "Direct link to The Six Pillars of Context Engineering")
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Context engineering is a system built from six interdependent components that control what information reaches the model and when. **Agents** orchestrate decisions, **Query Augmentation** refines user input, **Retrieval** connects to external knowledge, **Prompting** guides reasoning, **Memory** preserves history, and **Tools** enable real-world action.
+
+### Agents[​](#agents "Direct link to Agents")
+
+Agents are quickly becoming the foundation for building AI applications. They are both the architects of their context and the users of those contexts, dynamically defining knowledge bases, tool use, and information flow within an entire system.
+
+**What Defines an Agent**
+
+An [**AI agent**](/blog/ai-agents) is a system that uses a large language model (LLM) as its “brain” to do decision-making and solve complex tasks. The user supplies a goal, and the agent figures out the steps to achieve it, using available tools in its environment. Most real agents depend on a memory layer—short-term memory in the context window and long-term memory retrieved on demand.
+
+These four components often make up an agent:
+
+* **LLM (Large Language Model):** Responsible for reasoning, planning, and orchestrating the overall task.
+* **Tools:** External functionalities the agent can call upon: e.g., search engines, databases, APIs
+* **Memory:** Stores context, prior interactions, or data collected during task execution
+* **Observation & Reasoning:** The ability to break down tasks, plan steps, decide when/which tools to use, and how to deal with failure.
+
+**Where Agents Fit in Context Engineering**
+
+Agents sit at the center of a context-engineering system. They’re both the **users** of context, drawing from retrieved data, history, and external knowledge, and the **architects** of it, deciding what information to surface, retain, or discard.
+
+In a **single-agent system**, one agent handles the full pipeline, deciding when to search, summarize, or generate. In **multi-agent systems**, multiple agents each take on specialized roles that play into the larger goal. In both cases, how context is built and shared determines how well the system performs.
+
+Agents can have many different tasks and functions, from defining different retrieval or querying strategies to validating the quality or completeness of a response to dynamically selecting tools from available options. Agents provide the orchestration between all the different parts of the system to make dynamic, context-appropriate decisions about information management.
+
+![where agents fit in context engineering](/assets/images/agents-58c1707cb8ab491e001318f2ac37ad4b.png)
+
+### Query Augmentation[​](#query-augmentation "Direct link to Query Augmentation")
+
+Query augmentation is the process of refining the users initial input for downstream tasks, like querying a database or presenting it to an agent. This is unfortunately a lot harder than it sounds, but extremely important. No amount of sophisticated algorithms, reranking models, or clever prompting can truly make up for misunderstood user intent.
+
+There are two main things to think about:
+
+1. **Users don’t usually interact with chatbots or input boxes in the ideal way**. Most demos will assume the users input their complete requests in the form of perfectly formatted sentences, but in production apps, the actual usage tends to be messy, unclear, and incomplete.
+2. **Different parts of your AI system need to understand and use the user’s query in different ways.** The format that’s best for an LLM is probably not the same one that you would use to query a vector database, and so we need a way to augment the query to suit different tools and steps within our workflow.
+
+The [Weaviate Query Agent](https://docs.weaviate.io/agents/query) is a great example of how query augmentation can easily be built into any AI app. It works by taking a user’s prompt in natural language and deciding the best way to structure the query for the database based on it’s knowledge of the cluster’s data structure and Weaviate itself.
+
+![the query agent behind the scenes](/assets/images/query-agent-0c6d10bf85b4b4b3aa61be3d931d127d.png)
+
+### Retrieval[​](#retrieval "Direct link to Retrieval")
+
+A common saying when building with AI: **garbage in, garbage out**. Your Retrieval Augmented Generation (RAG) system-often described as an LLM RAG pipeline-is only as good as the information it retrieves. A well-written prompt and a robust model are useless if they're working with irrelevant context. This is why the first, and most important step, is optimizing your **retrieval**.
+
+The most important decision you'll make here is your **chunking strategy**. It’s a classic engineering trade-off:
+
+* **Small chunks** are great for **precision**. Their embeddings are focused, making it easy to find an exact match. The downside? They often lack the surrounding context for the LLM to generate a meaningful answer.
+* **Large chunks** are rich in **context**, which is great for the LLM's final output. But their embeddings can become "noisy" and averaged out, making it much harder to pinpoint the most relevant information. Also**,** they take up more space in the LLM's context window, which can potentially displace other relevant information.
+
+Finding that sweet spot between precision and context is the key to high-performance RAG. Get it wrong, and your system will fail to find the right facts, forcing the model to fall back on hallucination, the very thing you're trying to prevent.
+
+To help you find the best chunking strategy for your use case, we’ve created a cheat sheet that maps out the landscape of the most common chunking strategies from simple to advanced:
+
+![guide to choosing a chunking strategy](/assets/images/chunking-05d4231450f487299fdfa436a096ac30.png)
+
+The cheat sheet is a great starting point. But if you move from a basic PoC to a production-ready system, the questions usually get harder. Should you pre-chunk everything upfront, or do you need a more dynamic post-chunking architecture? How do you find your optimal chunk size?
+
+info
+
+We cover these questions, complete with code examples, in this deep-dive blog post: [Chunking Strategies to Improve Your RAG Performance](/blog/chunking-strategies-for-rag#pre-chunking-vs-post-chunking)
+
+### Prompting Techniques[​](#prompting-techniques "Direct link to Prompting Techniques")
+
+So once you’ve perfected your retrieval. Your system pulls the most relevant chunks of information in milliseconds. Your job is done, right?
+
+Not quite. You can't just stuff them into the **context window** and hope for the best. You need to tell the model *how* to use this newfound information. This technique is called **prompt engineering**.
+
+In a retrieval system, your prompt is the control layer. It's the set of instructions that tells the LLM *how* to behave. Your prompt needs to clearly define the task. Are you asking the model to:
+
+* **Synthesize** an answer from multiple, sometimes conflicting, sources?
+* **Extract** specific entities and format them as a JSON object?
+* **Answer** a question based *only* on the provided context to prevent hallucinations?
+
+Without clear instructions, the model will ignore your beautifully retrieved context and hallucinate an answer. Your prompt is the final safeguard that makes the model respect the facts you've given it.
+
+![prompting techniques overview](/assets/images/prompting-cea4bab945eb766448b30a6ad88f7519.png)
+
+There's a whole toolkit of prompting techniques you can choose from. But to go from theory to production, you need to know not just *what* these frameworks are, but *how* and *when* to implement them. In our [Context Engineering eBook](https://weaviate.io/ebooks/the-context-engineering-guide), you’ll learn how to implement simple techniques like Chain-of-Thought (CoT) and more advanced ones like the ReAct framework to build systems that can tackle complex, multi-step tasks with reliability.
+
+### Memory[​](#memory "Direct link to Memory")
+
+This is what most people mean when they search for LLM memory or agent memory: a system that combines the context window with retrieval and long-term storage so the agent can stay consistent over time.
+
+A stateless LLM can answer a single question well, but it has no idea what happened five minutes ago or why that matters for the next decision. Memory transforms the model into something that feels more dynamic and, dare we say, more ‘human’, that’s capable of holding onto context, learning from the past, and adapting on the fly. For context engineering, the core challenge is not “how much can we store?” but “what deserves a spot in front of the model right now, and what can safely live elsewhere?
+
+**The Architecture of Agent Memory**
+
+Memory in an AI agent is all about retaining information to navigate changing tasks, remember what worked (or didn't), and think ahead. To build robust agents, we need to think in layers, often blending different types of memory for the best results.
+
+**Short‑term memory** is the live context window: recent turns/reasoning, tool outputs, and retrieved documents that the model needs to reason about the current step. This space is brutally finite, so it should stay lean, just enough conversation history to keep the thread coherent and decisions grounded.
+
+**Long-term memory**, by contrast, lives outside the model, usually in vector databases for quick retrieval ([RAG](/blog/introduction-to-rag)). These stores keep information permanently, and can hold:
+
+* Episodic Data: past events, user interactions, preferences
+* Semantic Data: general and domain knowledge
+* Procedural Data: routines, workflows, decision steps
+
+Because it’s external, this memory can grow, update, and persist beyond the model’s context window.
+
+Most modern systems usually implement a hybrid memory setup, i.e., blending short-term memory with long-term for depth. Some architectures also add a *working memory*: a temporary space for information needed during a multi-step task. For example, while booking a trip, an agent might keep the destination, dates, and budget in working memory until the task is done, without storing it permanently. This is often called persistent memory or agent long-term memory.
+
+![memory types in agentic systems](/assets/images/memory-types-886ed8c1574b5c38418d121e4ecf3741.png)
+
+**Designing Memory That Doesn’t Pollute Context**
+
+The worst memory system is the one that faithfully stores everything. Old, low‑quality, or noisy entries eventually come back through retrieval and start to contaminate the context with stale assumptions or irrelevant details. Effective agents are selective: they filter which interactions get promoted into long‑term storage, often by letting the model “reflect” on an event and assign an importance or usefulness score before saving it.
+
+Once in storage, memories need maintenance. Periodic pruning, merging duplicates, deleting outdated facts, and replacing long transcripts with compact summaries keep retrieval sharp and prevent the context window from being filled with historical clutter. Criteria like recency and retrieval frequency are simple but powerful signals for what to keep and what to retire.
+
+Our eBook’s memory section goes deeper into more of these memory management strategies, including mastering the art of retrieval, being selective about what you store, and pruning and refining memories. It also highlights the key principle: always tailor the memory architecture to the task because there’s no one-size-fits-all solution (at least not yet).
+
+![key principles for effective memory management](/assets/images/memory-management-53d6f550c5d120071d8cb6a3009c579b.png)
+
+Terminology
+
+If you're searching for **LLM memory** or **agent memory**, you're usually looking for the systems behind context engineering: **retrieval**, **long-term memory storage**, and **rules for what enters the context window** at each step.
+
+### Tools[​](#tools "Direct link to Tools")
+
+If memory lets an agent remember its past, tool use gives it the ability to act in the present. Without tools, even the most sophisticated LLM is locked inside a text bubble, i.e., it can reason, draft, and summarize brilliantly, but it cannot check live stock prices, send an email, query a database, or book a flight. Tools are the bridge between thought and action, the medium that lets an agent step outside its training data and interact with the real world.
+
+Context engineering for tools isn't just giving an agent a list of APIs and instructions. It's about creating a cohesive workflow where the agent can understand what tools are available, decide correctly which one to use for a specific task, and interpret the results to move forward.
+
+![Tool use](/assets/images/tool-use-43729ed97a3ac0c9c1c1e00209d41736.png)
+
+**The Orchestration Challenge**
+
+Handing an agent a list of available tools is straightforward. Getting it to use those tools correctly, safely, and efficiently is where context engineering work begins. This orchestration involves several moving parts, all happening inside the limited context window:
+
+* **Tool Discovery:** The agent must know what all tools it has access to. This is done by giving it a clear tool list and high-quality descriptions in the system prompt. These descriptions guide the agent in understanding how each tool works, when to use it, and when to avoid it.
+* **Tool Selection and Planning:** When a user makes a request, the agent must decide whether a tool is needed and, if so, which one. For complex tasks, it may plan a sequence of tools to use (for example: “Search the weather, then email the summary”).
+* **Argument Formulation:** After choosing a tool, the agent must determine the correct arguments to pass. For example, if the tool is `get_weather(city, date)`, it must infer details, such as “San Francisco” and “2025-11-25” from the user’s query and format them properly for the call.
+* **Reflection:** After a tool is executed, the output is returned to the agent. The agent reviews it to decide what to do next: whether the tool worked correctly, whether more iterations are needed, or whether an error means it should try a different approach entirely.
+
+As you can see, orchestration happens through this powerful feedback loop, often called the Thought-Action-Observation cycle. The agent constantly observes the outcome of its action and uses that new information to fuel its next "thought". This Thought-Action-Observation cycle forms the fundamental reasoning loop in modern agentic frameworks like our own [Elysia](/blog/elysia-agentic-rag).
+
+**The Shift Toward Standardization with MCP**
+
+The evolution of tool use is moving more and more towards standardization. While function/tool calling works well, it creates a fragmented ecosystem where each AI application needs custom integrations with every external system. The [Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol), introduced by Anthropic in late 2024, addresses this by providing a universal standard for connecting AI applications to external data sources and tools. They call it ["USB-C for AI"](https://modelcontextprotocol.io/docs/getting-started/intro) - a single protocol that any MCP-compatible AI application can use to connect to any MCP server.
+So, instead of building custom integrations for each tool, developers can just create individual MCP servers that expose their systems through this standardized interface. Any AI application that supports MCP can then easily connect to these servers using the JSON-RPC based protocol for client-server communication. This transforms the MxN integration problem (where M applications each need custom code for N tools) into a much simpler M + N problem.
+
+As tool use integration standardizes, the real work becomes designing systems that think together, not wiring them together.
+
+![traditional integration versus MCP approach](/assets/images/mcp-85e85c3b59c0d203c2633717c37de0e4.png)
+
+Example: Building a Real-World Agent with Elysia[​](#example-building-a-real-world-agent-with-elysia "Direct link to Example: Building a Real-World Agent with Elysia")
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Everything covered in this blog, from agents orchestrating decisions, query augmentation shaping retrieval, memory preserving state, to tools enabling action, comes together when you build real systems.
+
+[Elysia](https://github.com/weaviate/elysia) is our open-source agentic RAG framework that embodies these context engineering principles in a decision-tree architecture.
+
+Unlike simple retrieve-then-generate pipelines, Elysia's decision agent evaluates the environment, available tools, past actions, and future options before choosing what to do next. Each node in the tree has global context awareness. When a query fails or returns irrelevant results, the agent can recognize this and adjust its strategy rather than blindly proceeding.
+
+In this example, we'll build an agent that searches live news, fetches article content, and queries your existing Weaviate collections, all through intelligent decision making and orchestration of the Elysia framework. You can get started with Elysia by installing it as a Python package:
+
+```
+pip install elysia-ai
+```
+
+### Built-in Tools for Context-Aware Retrieval[​](#built-in-tools-for-context-aware-retrieval "Direct link to Built-in Tools for Context-Aware Retrieval")
+
+Elysia includes five powerful built-in tools: `query` , `aggregate` , `text_response`, `cited_summarize`, and `visualize`.
+
+* `query` tool retrieves specific data entries using different search strategies, such as hybrid search or a simple fetch objects, with automatic collection selection and filter generation via an LLM agent.
+* `aggregate` tool performs calculations like counting, averaging, and summing with grouping and filtering capabilities, also with an LLM agent.
+* `text_response` and `cited_summarize` respond directly to the user, either with regular text or with text that includes citations from the retrieved context in the environment, respectively.
+* `visualize` tool helps visualize data that is in the environment using dynamic displays like product cards, GitHub issues, graphs, etc.
+
+Before interacting with your collections, you'll need to run Elysia's **`preprocess()`** function on your collections so Elysia can analyze schema patterns and infer relationships.
+
+```
+from elysia import configure, preprocess  
+  
+# Connect to Weaviate  
+configure(  
+    wcd_url = "...", # replace with your Weaviate REST endpoint URL  
+    wcd_api_key = "..." # replace with your Weaviate cluster API key,  
+    base_model="gemini-2.5-flash",  
+    base_provider="gemini",  
+    complex_model="gemini-3-pro-preview",  
+    complex_provider="gemini",  
+        gemini_api_key = "..." # replace with your GEMINI_API_KEY  
+)  
+  
+# Preprocess your collections (one-time setup)  
+preprocess(["NewsArchive", "ResearchPapers"])
+```
+
+note
+
+This example assumes you already have `NewsArchive` and `ResearchPapers` collections set up in your Weaviate cluster with some data ingested. If you're starting fresh, check out the Weaviate documentation on [creating collections](https://docs.weaviate.io/weaviate/manage-collections/collection-operations#create-a-collection) and [importing objects](https://docs.weaviate.io/weaviate/manage-objects/import) to get your data ready for Elysia.
+
+### Custom Tools to Extend Agent's Capabilities[​](#custom-tools-to-extend-agents-capabilities "Direct link to Custom Tools to Extend Agent's Capabilities")
+
+Elysia can also use completely custom tools, along with the built-in ones. This lets you extend the agent's reach beyond your local collections to live data, external APIs, or any other data source.
+
+Here's how you can build a simple agent that searches live news with [Serper API](https://serper.dev/), fetches article content, and queries your existing multiple collections easily with Elysia:
+
+```
+from elysia import Tree, tool, Error, Result  
+  
+tree = Tree()  
+  
+@tool(tree=tree)  
+async def search_live_news(topic: str):  
+    """Search for live news headlines using Google via Serper."""  
+    import httpx  
+    async with httpx.AsyncClient() as client:  
+        response = await client.post(  
+            "<https://google.serper.dev/news>",  
+            headers={  
+                "X-API-KEY": SERPER_API_KEY, # Replace with an actual key: https://serper.dev/api-keys  
+                "Content-Type": "application/json"  
+            },  
+            json={"q": topic, "num": 5}  
+        )  
+        results = response.json().get("news", [])  
+        yield Result(objects=[  
+            {"title": item["title"], "url": item["link"], "snippet": item.get("snippet", "")}  
+            for item in results  
+        ]  
+  
+@tool(tree=tree)  
+async def fetch_article_content(url: str):  
+    """Extract full article text in markdown format."""  
+    from trafilatura import fetch_url, extract  
+  
+    downloaded = fetch_url(url)  
+    text = extract(downloaded)  
+    if text is None:  
+        yield Error(f"Cannot parse URL: {url}. Please try a different one")  
+  
+    yield Result(objects=[{"url": url, "content": text}])  
+  
+response, objects = tree(  
+    "Search for AI regulation news, fetch the top article, and find related pieces in my archive and research papers",  
+    collection_names=["NewsArchive", "ResearchPapers"]  
+)  
+print(response)
+```
+
+When you run Elysia with this setup, the decision tree chains these actions intelligently:
+
+* **`search_live_news`** tool finds breaking stories and adds them to the environment,
+* **`fetch_article_content`** tool retrieves full text from the promising URL, then
+* Elysia's built-in query tool searches across both collections by routing to **`NewsArchive`** for past articles and **`ResearchPapers`** for academic sources.
+* When you follow up with "What academic papers by XYZ author discuss this topic?", the agent recognizes the intent and prioritizes the **`ResearchPapers`** collection without you specifying it explicitly.
+
+This is context engineering in practice: the decision agent orchestrates information flow, augments queries on the fly, retrieves from multiple sources, maintains state across turns, and uses tools to act on the world - all while maximizing the limited context window with only the relevant tokens to drive reasoning.
+
+info
+
+The complete Elysia documentation is available at: <https://weaviate.github.io/elysia/>
+
+[Your browser does not support the video tag.](/assets/medias/elysia-demo-5fc578f9db417bdafbf607ab99060225.mp4)
+
+Conclusion[​](#conclusion "Direct link to Conclusion")
+------------------------------------------------------
+
+So, where does this leave us?
+
+It all comes back to that gap between a flashy demo and a dependable production system. The bridge across that gap isn't a single technique; it's a discipline of the 6 pillars of context engineering that work together.
+
+A powerful Agent is useless without clean data from Retrieval. Great Retrieval is wasted if a poor Prompt misguides the model. And even the best Prompt can't function without the history provided by Memory or the real-world access given by Tools.
+
+Context engineering is about shifting our role from being prompters who talk *at* a model to architects who build the world the model lives *in*. It’s also how you build robust LLM memory—combining retrieval and long-term storage with a context window that stays clean and high-signal.
+
+As builders, we know that larger models do not necessarily create the best AI systems, but rather better engineering does.
+
+Now, let's get back to building. We’re looking forward to seeing what you’re working on! 💚
+
+Ready to start building?[​](#ready-to-start-building "Direct link to Ready to start building?")
+-----------------------------------------------------------------------------------------------
+
+Check out the [Quickstart tutorial](https://docs.weaviate.io/weaviate/quickstart), or build amazing apps with a free trial of [Weaviate Cloud (WCD)](https://console.weaviate.cloud/).
+
+[GitHub](https://github.com/weaviate/weaviate)
+
+[Forum](https://forum.weaviate.io/)
+
+[X (Twitter)](https://twitter.com/weaviate_io)
+
+Don't want to miss another blog post?
+-------------------------------------
+
+Sign up for our bi-weekly newsletter to stay updated!
+
+  
+By submitting, I agree to the [Terms of Service](/service) and [Privacy Policy](/privacy).
+
+**Tags:**
+
+* [concepts](/blog/tags/concepts)
+
+[Edit this page](https://github.com/weaviate/weaviate-io/tree/main/blog/2025-12-09-context-engineering/index.mdx)
+
+[Newer Post
+
+Weaviate 1.35 Release](/blog/weaviate-1-35-release)[Older Post
+
+AWS 2025 Rising Star Technology Partner](/blog/aws-2025-partner-award)
+
+* [But What Is a Context Window?](#but-what-is-a-context-window)
+* [Context Engineering vs. Prompt Engineering](#context-engineering-vs-prompt-engineering)
+* [The Context Window Challenge](#the-context-window-challenge)
+* [The Six Pillars of Context Engineering](#the-six-pillars-of-context-engineering)
+  + [Agents](#agents)
+  + [Query Augmentation](#query-augmentation)
+  + [Retrieval](#retrieval)
+  + [Prompting Techniques](#prompting-techniques)
+  + [Memory](#memory)
+  + [Tools](#tools)
+* [Example: Building a Real-World Agent with Elysia](#example-building-a-real-world-agent-with-elysia)
+  + [Built-in Tools for Context-Aware Retrieval](#built-in-tools-for-context-aware-retrieval)
+  + [Custom Tools to Extend Agent's Capabilities](#custom-tools-to-extend-agents-capabilities)
+* [Conclusion](#conclusion)
+
+Product
+
+* [Vector Database](/platform)
+* [Products](/product)
+* [Pricing](/pricing)
+* [Weaviate Cloud](https://console.weaviate.cloud/)
+* [Deployment](#)
+* [Shared Cloud](/deployment/shared)
+* [Dedicated Cloud](/deployment/dedicated)
+* [Enablement](/deployment/enablement)
+* [Trust](#)
+* [Security](/security)
+* [Terms & Policies](/service)
+* [Report a Vulnerability](/security-report)
+* [Cookie Settings](#)
+
+Use Cases
+
+* [RAG](/RAG)
+* [Hybrid Search](/hybrid-search)
+* [Agentic AI](/agentic-ai)
+* [Cost Performance Optimization](/cost-performance-optimization)
+* [Examples](#)
+* [Demos](/community/demos)
+
+Learn
+
+* [Learning Center](/learn)
+* [Blog](/blog)
+* [Academy](https://academy.weaviate.io/)
+* [Knowledge Cards](/learn/knowledgecards)
+* [Paper Reviews](/papers)
+* [Podcasts](/podcast)
+* [Build](#)
+* [Weaviate Database Docs](https://docs.weaviate.io/weaviate)
+* [Weaviate Cloud Docs](https://docs.weaviate.io/cloud)
+* [Weaviate Deployment Docs](https://docs.weaviate.io/deploy)
+* [Weaviate Agents Docs](https://docs.weaviate.io/agents)
+* [GitHub](https://github.com/weaviate/weaviate)
+* [LLM / Agent guides](https://weaviate.io/llms.txt)
+* [Engage](#)
+* [Events & Webinars](/community/events)
+* [Weaviate Hero Program](/community)
+* [Forum](https://forum.weaviate.io/)
+
+About
+
+* [Company](/company/about-us)
+* [Careers](/company/careers)
+* [Remote](/company/remote)
+* [Playbook](/company/playbook)
+* [Investors](/company/investors)
+* [Contact Us](/contact)
+* [Partners](#)
+* [Overview](/partners)
+* [AWS](/partners/aws)
+* [Google Cloud](/partners/gcp)
+* [Snowflake](/partners/snowflake)
+* [Databricks](/partners/databricks)
+* [Become a Partner](/partners)
+
+Follow Us
+
+* [GitHub](https://github.com/weaviate/weaviate)
+* [X](https://x.com/weaviate_io)
+* [Instagram](https://instagram.com/weaviate.io)
+* [YouTube](https://youtube.com/@Weaviate)
+* [LinkedIn](https://www.linkedin.com/company/weaviate-io)
+
+Copyright © 2026 Weaviate, B.V. Built with Docusaurus.
+
+---

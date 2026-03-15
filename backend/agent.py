@@ -15,7 +15,7 @@ from langchain.agents.middleware import ToolRetryMiddleware
 from deepagents import create_deep_agent
 from deepagents.backends.filesystem import FilesystemBackend
 from langchain_core.runnables import Runnable 
-from tools import tavily_search, think_tool
+from backend.tools import tavily_search, think_tool
 from tavily import UsageLimitExceededError
 
 # Data Validation
@@ -26,7 +26,7 @@ from dataclasses import dataclass
 load_dotenv()
 log = logging.getLogger(__name__)
 BASE_DIR = Path(__file__).parent
-WORKSPACE_DIR = BASE_DIR / "workspace"
+WORKSPACE_DIR = BASE_DIR.parent / "workspace"
 WORKSPACE_DIR.mkdir(exist_ok=True)
 
 # Loader function

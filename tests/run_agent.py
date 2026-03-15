@@ -57,7 +57,7 @@ class UsageTracker(BaseCallbackHandler):
 
 
 def run(query: str):
-    from agent import build_agent
+    from backend.agent import build_agent
 
     _clean_workspace()
     print(f"\n{'='*60}")
