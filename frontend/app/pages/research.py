@@ -53,14 +53,20 @@ def stream_events(query: str):
     except SSEError as e:
         raise ConnectionError(f"API returned a non-SSE response. Is the server running? ({e})")
 
+def md_to_slack(text: str) -> str:
+    text = re.sub(r'^#{1,6}\s+(.+)$', r'*\1*', text, flags=re.MULTILINE)
+    text = re.sub(r'\*\*(.+?)\*\*', r'*\1*', text)
+    return text
+
 def send_to_slack(content: str) -> bool:
     url = os.getenv("SLACK_WEBHOOK_URL", "")
     if not url:
         return False
     try:
+        body = md_to_slack(content)
         response = httpx.post(
             url,
-            json={"text": f"*Deep Research Report*\n\n{content[:2900]}"},
+            json={"text": f"*Deep Research Report*\n\n{body[:2900]}"},
             timeout=10,
         )
         return response.status_code == 200
@@ -202,6 +208,8 @@ if st.session_state.report_content:
         )
 
     with col3:
-        if st.button("Send to Slack", icon=":material/send:", disabled=not os.getenv("SLACK_WEBHOOK_URL")):
-            ok = send_to_slack(report_content)
-            st.success("Sent to Slack.") if ok else st.error("Failed to send.")
+        slack_clicked = st.button("Send to Slack", icon=":material/send:", disabled=not os.getenv("SLACK_WEBHOOK_URL"))
+
+    if slack_clicked:
+        ok = send_to_slack(report_content)
+        st.success("Sent to Slack.") if ok else st.error("Failed to send.")
