@@ -55,6 +55,8 @@ class LLMConfig(BaseModel):
     fallback_model: str
     fallback_url: str
     subagent_model_name: str
+    subagent_base_url: str | None = None
+    subagent_api_key: str | None = None
 
 class AgentConfig(BaseModel):
     max_subagent_iterations: int = Field(default=1, ge=1)
@@ -79,6 +81,8 @@ llm_config = LLMConfig(
     fallback_model = os.getenv("FALLBACK_MODEL", "gpt-5.2"),
     fallback_url = os.getenv("FALLBACK_BASE_URL", "https://api.openai.com/v1"),
     subagent_model_name = os.getenv("SUBAGENT_MODEL_NAME", "claude-sonnet-4-6"),
+    subagent_base_url = os.getenv("SUBAGENT_BASE_URL"),
+    subagent_api_key = os.getenv("SUBAGENT_API_KEY"),
 )
 
 agent_config = AgentConfig(
@@ -120,6 +124,21 @@ def _init_llm(config: LLMConfig, model_name: str | None = None) -> BaseChatModel
 
     raise EnvironmentError("No LLM API key found, provide ANTHROPIC_API_KEY or OPENAI_API_KEY in .env")
 
+def _init_subagent_llm(config: LLMConfig) -> BaseChatModel:
+    """Initializes the sub-agent LLM.
+
+    If SUBAGENT_BASE_URL and SUBAGENT_API_KEY are set, uses a custom OpenAI-compatible
+    provider (e.g. Inception Labs Mercury). Otherwise falls back to the main LLM init.
+    """
+    if config.subagent_base_url and config.subagent_api_key:
+        log.info(f"[AGENT] Initializing sub-agent LLM: model={config.subagent_model_name} (custom provider)")
+        return ChatOpenAI(
+            model=config.subagent_model_name,
+            base_url=config.subagent_base_url,
+            api_key=config.subagent_api_key,
+        )
+    return _init_llm(config, model_name=config.subagent_model_name)
+
 # --------------------
 # |  INIT SUBAGENTS  |
 # --------------------
@@ -139,7 +158,7 @@ def _init_subagents(agent_cfg: AgentConfig, llm_cfg: LLMConfig) -> list[dict]:
         description="Delegate research to the researcher sub-agent. Searches the web and fetches full page content when needed. Only give this agent one topic at a time.",
         system_prompt=RESEARCHER_INSTRUCTIONS.format(date=agent_cfg.current_date),
         tools=[tavily_search],
-        model=_init_llm(llm_cfg, model_name=llm_cfg.subagent_model_name),
+        model=_init_subagent_llm(llm_cfg),
     )
 
     return [{
