@@ -202,13 +202,6 @@ if st.session_state.report_content:
         )
 
     with col3:
-        if os.getenv("SLACK_WEBHOOK_URL"):
-            if st.button("Send to Slack", icon=":material/send:"):
-                ok = send_to_slack(report_content)
-                st.success("Sent to Slack.") if ok else st.error("Failed to send.")
-        else:
-            st.button(
-                "Send to Slack",
-                icon=":material/send:",
-                help="Set SLACK_WEBHOOK_URL in .env to enable.",
-            )
+        if st.button("Send to Slack", icon=":material/send:", disabled=not os.getenv("SLACK_WEBHOOK_URL")):
+            ok = send_to_slack(report_content)
+            st.success("Sent to Slack.") if ok else st.error("Failed to send.")
