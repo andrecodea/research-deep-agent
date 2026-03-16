@@ -145,12 +145,6 @@ See [`examples/final_report.md`](examples/final_report.md) for a sample report g
 - [ ] Thread/session management for multi-turn conversations
 - [ ] Request validation and structured error responses
 
-### Phase 4 — Ambient Agent (Scheduled Research) 🔜
-- [ ] Weekly cron job that runs the agent automatically
-- [ ] Configurable query (e.g. "latest papers on X published this week")
-- [ ] Sends the report as Markdown to Slack via webhook
-- [ ] Configurable schedule and topic via environment variables
-
 ### Phase 3 — Frontend (Streamlit) ✅
 - [x] Multi-page app: Home, Research, Info
 - [x] Real-time agent activity panel with dynamic status labels
@@ -159,3 +153,9 @@ See [`examples/final_report.md`](examples/final_report.md) for a sample report g
 - [x] Export: download `.md`, open in Obsidian, send to Slack
 - [x] Info page with architecture diagrams, stack table, and benchmarks
 - [x] Session state persistence across page navigation
+
+### Phase 4 — Ambient Agent (Scheduled Research) 🔜
+- [ ] Weekly cron job that runs the agent automatically
+- [ ] Configurable query (e.g. "latest papers on X published this week")
+- [ ] Sends the report as Markdown to Slack via webhook
+- [ ] Configurable schedule and topic via environment variables
