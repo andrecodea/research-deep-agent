@@ -8,6 +8,9 @@ Structure:
 """
 
 import streamlit as st
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
 
 
 def main():
