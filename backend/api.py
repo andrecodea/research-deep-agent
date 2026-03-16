@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
-from backend.agent import build_agent
+from backend.agent import build_agent, WORKSPACE_DIR
 import json
 import uuid
 
@@ -12,10 +12,26 @@ app = FastAPI(title="Deep Research Agent API")
 class ResearchRequest(BaseModel):
     query: str
 
+def _extract_text(content) -> str:
+    """Extract plain text from an AIMessageChunk content (str or list of blocks)."""
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        return "".join(
+            block.get("text", "") for block in content
+            if isinstance(block, dict) and block.get("type") == "text"
+        )
+    return ""
+
+def _clear_workspace():
+    for f in WORKSPACE_DIR.glob("*.md"):
+        f.unlink(missing_ok=True)
+
 @app.post("/research/stream")
 async def research_stream(request: ResearchRequest):
     async def event_stream():
         yield ": connected\n\n"
+        _clear_workspace()
         try:
             pending_tool_calls: dict[int, dict] = {}  # index → {id, name, args}
 
@@ -28,8 +44,9 @@ async def research_stream(request: ResearchRequest):
 
                 if msg_type == "AIMessageChunk":
                     # Stream text tokens
-                    if isinstance(chunk.content, str) and chunk.content:
-                        yield f"event: token\ndata: {json.dumps({'content': chunk.content})}\n\n"
+                    text = _extract_text(chunk.content)
+                    if text:
+                        yield f"event: token\ndata: {json.dumps({'content': text})}\n\n"
 
                     # Accumulate tool call chunks by index
                     for tc in getattr(chunk, "tool_call_chunks", []):
