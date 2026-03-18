@@ -46,9 +46,9 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    subgraph Simple ["Simple query (~4 calls, ~40k tokens)"]
+    subgraph Simple ["Simple query (~2 calls, ~18k tokens)"]
         direction LR
-        O1[Orchestrator\nsearch direct] --> O2[Orchestrator\nthink + write report\n2–3 calls]
+        O1[Orchestrator\nsearch direct] --> O2[Orchestrator\nwrite report]
     end
 
     subgraph Complex ["Comparison query (~10 calls, ~90k tokens)"]
@@ -128,7 +128,7 @@ See [`examples/final_report.md`](examples/final_report.md) for a sample report g
 
 | Query type | LLM calls | Total tokens | Latency |
 |---|---|---|---|
-| Simple / single-topic | ~4 | ~40k | ~30–50s |
+| Simple / single-topic | ~2 | ~18k | ~15–20s |
 | Comparison / deep research | ~10 | ~90k | ~75s |
 
 ## Framework Comparison
@@ -153,8 +153,8 @@ Benchmarked against an equivalent single-agent implementation using [agno](https
 - [x] Bypass sub-agent for single-topic queries — orchestrator searches directly with `tavily_search`
 - [x] Hard cap on `tavily_search` calls via closure counter (enforced at code level, not just prompt)
 - [x] Sub-agent search limit raised to 3; sources section exempt from 300-word compression limit
+- [x] Skip `think_tool` assessment for single-topic queries (saves 1 call — ~2 calls / ~18k tokens total)
 - [ ] Route report-writing calls to a cheaper model (e.g. Haiku) instead of Sonnet
-- [ ] Evaluate removing the verification step to save 1 orchestrator call
 
 ### Phase 2 — API Layer (FastAPI) ✅
 - [x] Reorganize project into `backend/` and `frontend/` structure
