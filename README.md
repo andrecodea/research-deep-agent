@@ -16,15 +16,15 @@ flowchart TD
 
     O -->|Research needed| C{Query type?}
 
-    C -->|Single topic| R1[research-agent]
+    C -->|Single topic| TS[tavily_search\ndirect — up to 3 searches]
     C -->|Comparison| R2[research-agent A\n2–3 topics]
     C -->|Comparison| R3[research-agent B\n2–3 topics]
 
-    R1 --> T[think_tool\nassess findings]
+    TS --> T[think_tool\nassess findings]
     R2 --> T
     R3 --> T
 
-    T -->|Gap remains| RX[research-agent\nfill gap]
+    T -->|Gap remains| RX[tavily_search\nfill gap]
     RX --> F
     T -->|Sufficient| F[Write\nfinal_report.md]
 
@@ -37,23 +37,23 @@ flowchart TD
 flowchart TD
     IN([Task from Orchestrator]) --> Search[tavily_search\n3 results]
     Search --> Gap{Specific gap\nremains?}
-    Gap -->|Yes, 1 more search| Search2[tavily_search\ntargeted query]
+    Gap -->|Yes, up to 2 more searches| Search2[tavily_search\ntargeted query]
     Gap -->|No| OUT
-    Search2 --> OUT([Compressed summary\n+ Sources])
+    Search2 --> OUT([Compressed summary\n+ All Sources])
 ```
 
 ### LLM Call Budget
 
 ```mermaid
 flowchart LR
-    subgraph Simple ["Simple query (~5 calls, ~35k tokens)"]
+    subgraph Simple ["Simple query (~4 calls, ~40k tokens)"]
         direction LR
-        O1[Orchestrator\nplan] --> RA1[research-agent\n1–2 calls] --> O2[Orchestrator\nthink + write report\n2–3 calls]
+        O1[Orchestrator\nsearch direct] --> O2[Orchestrator\nthink + write report\n2–3 calls]
     end
 
     subgraph Complex ["Comparison query (~10 calls, ~90k tokens)"]
         direction LR
-        O3[Orchestrator\nplan] --> RA2[agent A\n1–2 calls] & RA3[agent B\n1–2 calls] --> O4[Orchestrator\nthink + write report\n3–4 calls]
+        O3[Orchestrator\nplan] --> RA2[agent A\n1–3 calls] & RA3[agent B\n1–3 calls] --> O4[Orchestrator\nthink + write report\n3–4 calls]
     end
 ```
 
@@ -68,7 +68,7 @@ flowchart LR
 | Full page fetch | `httpx` + `markdownify` |
 | Checkpointing | `InMemorySaver` (default) / PostgreSQL |
 | API layer | FastAPI + SSE streaming |
-| Frontend | Streamlit (in progress) |
+| Frontend | Streamlit |
 
 ## Setup
 
@@ -128,13 +128,16 @@ See [`examples/final_report.md`](examples/final_report.md) for a sample report g
 
 | Query type | LLM calls | Total tokens | Latency |
 |---|---|---|---|
-| Simple / single-topic | ~5 | ~35k | ~50s |
+| Simple / single-topic | ~4 | ~40k | ~30–50s |
 | Comparison / deep research | ~10 | ~90k | ~75s |
 
 ## Roadmap
 
 ### Phase 1 — Token & Cost Optimization ✅
 - [x] Compress sub-agent findings before passing to orchestrator (research-agent returns bullet-point summary)
+- [x] Bypass sub-agent for single-topic queries — orchestrator searches directly with `tavily_search`
+- [x] Hard cap on `tavily_search` calls via closure counter (enforced at code level, not just prompt)
+- [x] Sub-agent search limit raised to 3; sources section exempt from 300-word compression limit
 - [ ] Route report-writing calls to a cheaper model (e.g. Haiku) instead of Sonnet
 - [ ] Evaluate removing the verification step to save 1 orchestrator call
 
