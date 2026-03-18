@@ -15,7 +15,7 @@ from langchain.agents.middleware import ToolRetryMiddleware
 from deepagents import create_deep_agent
 from deepagents.backends.filesystem import FilesystemBackend
 from langchain_core.runnables import Runnable 
-from backend.tools import tavily_search, think_tool
+from backend.tools import tavily_search, think_tool, create_tavily_search
 from tavily import UsageLimitExceededError
 
 # Data Validation
@@ -157,7 +157,7 @@ def _init_subagents(agent_cfg: AgentConfig, llm_cfg: LLMConfig) -> list[dict]:
         name="research-agent",
         description="Delegate research to the researcher sub-agent. Searches the web and fetches full page content when needed. Only give this agent one topic at a time.",
         system_prompt=RESEARCHER_INSTRUCTIONS.format(date=agent_cfg.current_date),
-        tools=[tavily_search],
+        tools=[create_tavily_search(max_calls=3)],
         model=_init_subagent_llm(llm_cfg),
     )
 

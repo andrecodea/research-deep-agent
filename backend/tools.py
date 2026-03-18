@@ -15,69 +15,90 @@ def _get_tavily_client() -> TavilyClient:
 
 log = logging.getLogger(__name__)
 
-@tool(parse_docstring=True)
-def tavily_search(
-    query: str,
-    topic: Literal["general", "news", "finance"] = "general",
-    search_depth: Literal["advanced", "basic", "fast", "ultra-fast"] = "fast",
-    fetch_full_content: bool = False,
-    max_results: Annotated[int, InjectedToolArg] = 3,
-    ) -> str:
-    """Search the web for general context, facts, or news on a topic.
+def create_tavily_search(max_calls: int = 3):
+    """Creates a tavily_search tool instance with a hard cap on search calls.
 
-    Prefer 'fast' for most queries. Use 'advanced' for high-precision research.
-    Set fetch_full_content=True to fetch and convert the full page content when snippets are insufficient.
+    Each call to this factory returns a fresh tool with its own counter,
+    so different sub-agent instances get independent limits.
 
     Args:
-        query: Search query to execute
-        topic: 'general' for broad searches, 'news' for current events, 'finance' for financial data.
-        search_depth: 'fast' for low latency, 'ultra-fast' for minimum latency, 'basic' for balanced, 'advanced' for highest relevance.
-        fetch_full_content: Set True to fetch full page content via HTTP and convert to markdown. Use when snippet is insufficient.
-
-    Returns:
-        Search results with title, URL, and content
+        max_calls: Maximum number of search calls allowed before the tool blocks.
     """
+    call_count = [0]
 
-    try:
-        log.info(f"[RESEARCH AGENT] Executing tavily_search tool for {query}")
+    @tool(parse_docstring=True)
+    def tavily_search(
+        query: str,
+        topic: Literal["general", "news", "finance"] = "general",
+        search_depth: Literal["advanced", "basic", "fast", "ultra-fast"] = "fast",
+        fetch_full_content: bool = False,
+        max_results: Annotated[int, InjectedToolArg] = 3,
+    ) -> str:
+        """Search the web for general context, facts, or news on a topic.
 
-        sep = "\n"
+        Prefer 'fast' for most queries. Use 'advanced' for high-precision research.
+        Set fetch_full_content=True to fetch and convert the full page content when snippets are insufficient.
 
-        search_results = _get_tavily_client().search(
-            query=query,
-            max_results=max_results,
-            topic=topic,
-            search_depth=search_depth,
-        )
+        Args:
+            query: Search query to execute
+            topic: 'general' for broad searches, 'news' for current events, 'finance' for financial data.
+            search_depth: 'fast' for low latency, 'ultra-fast' for minimum latency, 'basic' for balanced, 'advanced' for highest relevance.
+            fetch_full_content: Set True to fetch full page content via HTTP and convert to markdown. Use when snippet is insufficient.
 
-        results_texts = []
+        Returns:
+            Search results with title, URL, and content
+        """
+        if call_count[0] >= max_calls:
+            log.warning(f"[RESEARCH AGENT] Search hard limit ({max_calls}) reached, blocking call for '{query}'")
+            return f"HARD LIMIT REACHED: you have used all {max_calls} search calls. Write your summary immediately — do NOT search again."
 
-        for result in search_results.get("results", []):
-            url = result["url"]
-            title = result["title"]
-            if fetch_full_content:
-                try:
-                    response = httpx.get(url, follow_redirects=True, timeout=10)
-                    content = md(response.text)
-                except Exception as fetch_err:
-                    log.warning(f"[RESEARCH AGENT] httpx fetch failed for {url}: {fetch_err}, falling back to snippet")
-                    content = result.get("content", "")[:1000]
-            else:
-                content = result.get("content", "")[:1000]
+        call_count[0] += 1
+        log.info(f"[RESEARCH AGENT] Executing tavily_search ({call_count[0]}/{max_calls}) for '{query}'")
 
-            result_text = (
-                f"{title}\n"
-                f"**URL:** {url}\n"
-                f"{content}\n\n"
-                "---\n"
+        try:
+            sep = "\n"
+
+            search_results = _get_tavily_client().search(
+                query=query,
+                max_results=max_results,
+                topic=topic,
+                search_depth=search_depth,
             )
 
-            results_texts.append(result_text)
+            results_texts = []
 
-        return f"""Found {len(results_texts)} result(s) for '{query}'\n\n{sep.join(results_texts)}"""
-    except Exception as e:
-        log.error(f"Failed to conduct a search on {query}: {e}", exc_info=True)
-        raise
+            for result in search_results.get("results", []):
+                url = result["url"]
+                title = result["title"]
+                if fetch_full_content:
+                    try:
+                        response = httpx.get(url, follow_redirects=True, timeout=10)
+                        content = md(response.text)
+                    except Exception as fetch_err:
+                        log.warning(f"[RESEARCH AGENT] httpx fetch failed for {url}: {fetch_err}, falling back to snippet")
+                        content = result.get("content", "")[:1000]
+                else:
+                    content = result.get("content", "")[:1000]
+
+                result_text = (
+                    f"{title}\n"
+                    f"**URL:** {url}\n"
+                    f"{content}\n\n"
+                    "---\n"
+                )
+
+                results_texts.append(result_text)
+
+            return f"""Found {len(results_texts)} result(s) for '{query}'\n\n{sep.join(results_texts)}"""
+        except Exception as e:
+            log.error(f"Failed to conduct a search on {query}: {e}", exc_info=True)
+            raise
+
+    return tavily_search
+
+
+# Default instance used by the orchestrator (no hard cap — orchestrator manages its own flow)
+tavily_search = create_tavily_search(max_calls=3)
 
 
 @tool(parse_docstring=True)
